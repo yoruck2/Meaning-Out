@@ -8,26 +8,28 @@
 import Foundation
     
 struct APIURL {
-    static let shoppingURL = "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo="
+    static let shoppingURL = "https://openapi.naver.com/v1/search/shop.json"
 }
 
-enum APIType {
-    case movieAPI
-    case weatherAPI
+enum APIHeaders {
+    case clientId
+    case clientSecret
 
-    var APIkey: String {
+    var header: String {
         let keyName: String
         
         switch self {
-        case .movieAPI:
-            keyName = "MOVIE_API_KEY"
-        case .weatherAPI:
-            keyName = "WEATHER_API_KEY"
+        case .clientId:
+            keyName = "X_Naver_Client_Id"
+        case .clientSecret:
+            keyName = "X_Naver_Client_Secret"
         }
         guard let key = Bundle.main.object(forInfoDictionaryKey: keyName) as? String else {
-            assertionFailure("API_KEY를 찾을 수 없음")
+            print("없다노")
+            assertionFailure("헤더를 찾을 수 없음")
             return ""
         }
+        print(key)
         return key
     }
 }

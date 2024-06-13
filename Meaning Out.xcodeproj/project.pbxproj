@@ -15,6 +15,12 @@
 		840A447A2C1B2DFE00094BDA /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 840A44792C1B2DFE00094BDA /* .gitignore */; };
 		840A447E2C1B6B7C00094BDA /* APIURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A447D2C1B6B7C00094BDA /* APIURL.swift */; };
 		840A44802C1B6CF600094BDA /* ShoppingDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A447F2C1B6CF600094BDA /* ShoppingDTO.swift */; };
+		840A44832C1B713300094BDA /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A44822C1B713300094BDA /* Network.swift */; };
+		840A44862C1B719D00094BDA /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 840A44852C1B719D00094BDA /* Toast */; };
+		840A44892C1B71A900094BDA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 840A44882C1B71A900094BDA /* Kingfisher */; };
+		840A448C2C1B71B700094BDA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 840A448B2C1B71B700094BDA /* Alamofire */; };
+		840A448F2C1B71C100094BDA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 840A448E2C1B71C100094BDA /* SnapKit */; };
+		840A44922C1B722A00094BDA /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 840A44912C1B722A00094BDA /* Then */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +35,7 @@
 		840A447B2C1B603400094BDA /* Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Configuration.xcconfig; sourceTree = "<group>"; };
 		840A447D2C1B6B7C00094BDA /* APIURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIURL.swift; sourceTree = "<group>"; };
 		840A447F2C1B6CF600094BDA /* ShoppingDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingDTO.swift; sourceTree = "<group>"; };
+		840A44822C1B713300094BDA /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +43,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840A44922C1B722A00094BDA /* Then in Frameworks */,
+				840A448C2C1B71B700094BDA /* Alamofire in Frameworks */,
+				840A448F2C1B71C100094BDA /* SnapKit in Frameworks */,
+				840A44892C1B71A900094BDA /* Kingfisher in Frameworks */,
+				840A44862C1B719D00094BDA /* Toast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,10 +73,10 @@
 		840A44642C1B2CA900094BDA /* Meaning Out */ = {
 			isa = PBXGroup;
 			children = (
+				840A44812C1B6E5000094BDA /* App */,
 				840A447F2C1B6CF600094BDA /* ShoppingDTO.swift */,
 				840A447D2C1B6B7C00094BDA /* APIURL.swift */,
-				840A44652C1B2CA900094BDA /* AppDelegate.swift */,
-				840A44672C1B2CA900094BDA /* SceneDelegate.swift */,
+				840A44822C1B713300094BDA /* Network.swift */,
 				840A44692C1B2CA900094BDA /* ViewController.swift */,
 				840A446E2C1B2CAA00094BDA /* Assets.xcassets */,
 				840A44702C1B2CAA00094BDA /* LaunchScreen.storyboard */,
@@ -73,6 +85,15 @@
 				840A447B2C1B603400094BDA /* Configuration.xcconfig */,
 			);
 			path = "Meaning Out";
+			sourceTree = "<group>";
+		};
+		840A44812C1B6E5000094BDA /* App */ = {
+			isa = PBXGroup;
+			children = (
+				840A44652C1B2CA900094BDA /* AppDelegate.swift */,
+				840A44672C1B2CA900094BDA /* SceneDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -91,6 +112,13 @@
 			dependencies = (
 			);
 			name = "Meaning Out";
+			packageProductDependencies = (
+				840A44852C1B719D00094BDA /* Toast */,
+				840A44882C1B71A900094BDA /* Kingfisher */,
+				840A448B2C1B71B700094BDA /* Alamofire */,
+				840A448E2C1B71C100094BDA /* SnapKit */,
+				840A44912C1B722A00094BDA /* Then */,
+			);
 			productName = "Meaning Out";
 			productReference = 840A44622C1B2CA900094BDA /* Meaning Out.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +147,13 @@
 				Base,
 			);
 			mainGroup = 840A44592C1B2CA900094BDA;
+			packageReferences = (
+				840A44842C1B719D00094BDA /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				840A44872C1B71A900094BDA /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				840A448A2C1B71B700094BDA /* XCRemoteSwiftPackageReference "Alamofire" */,
+				840A448D2C1B71C100094BDA /* XCRemoteSwiftPackageReference "SnapKit" */,
+				840A44902C1B722A00094BDA /* XCRemoteSwiftPackageReference "Then" */,
+			);
 			productRefGroup = 840A44632C1B2CA900094BDA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -148,6 +183,7 @@
 			files = (
 				840A447E2C1B6B7C00094BDA /* APIURL.swift in Sources */,
 				840A446A2C1B2CA900094BDA /* ViewController.swift in Sources */,
+				840A44832C1B713300094BDA /* Network.swift in Sources */,
 				840A44662C1B2CA900094BDA /* AppDelegate.swift in Sources */,
 				840A44802C1B6CF600094BDA /* ShoppingDTO.swift in Sources */,
 				840A44682C1B2CA900094BDA /* SceneDelegate.swift in Sources */,
@@ -170,6 +206,7 @@
 /* Begin XCBuildConfiguration section */
 		840A44742C1B2CAA00094BDA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 840A447B2C1B603400094BDA /* Configuration.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -233,6 +270,7 @@
 		};
 		840A44752C1B2CAA00094BDA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 840A447B2C1B603400094BDA /* Configuration.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -289,6 +327,7 @@
 		};
 		840A44772C1B2CAA00094BDA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 840A447B2C1B603400094BDA /* Configuration.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -321,6 +360,7 @@
 		};
 		840A44782C1B2CAA00094BDA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 840A447B2C1B603400094BDA /* Configuration.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -373,6 +413,77 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		840A44842C1B719D00094BDA /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
+		840A44872C1B71A900094BDA /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
+		840A448A2C1B71B700094BDA /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+		840A448D2C1B71C100094BDA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		840A44902C1B722A00094BDA /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		840A44852C1B719D00094BDA /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 840A44842C1B719D00094BDA /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+		840A44882C1B71A900094BDA /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 840A44872C1B71A900094BDA /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		840A448B2C1B71B700094BDA /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 840A448A2C1B71B700094BDA /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		840A448E2C1B71C100094BDA /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 840A448D2C1B71C100094BDA /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		840A44912C1B722A00094BDA /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 840A44902C1B722A00094BDA /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 840A445A2C1B2CA900094BDA /* Project object */;
 }
