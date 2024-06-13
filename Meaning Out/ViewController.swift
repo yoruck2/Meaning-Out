@@ -9,11 +9,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var searchList: ShoppingDTO?
+//    var searchList: ShoppingDTO?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        Network.requestSearchResult(query: "가방")
         
     }
 }
