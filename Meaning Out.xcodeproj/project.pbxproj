@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		840A44662C1B2CA900094BDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A44652C1B2CA900094BDA /* AppDelegate.swift */; };
 		840A44682C1B2CA900094BDA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A44672C1B2CA900094BDA /* SceneDelegate.swift */; };
-		840A446A2C1B2CA900094BDA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A44692C1B2CA900094BDA /* ViewController.swift */; };
+		840A446A2C1B2CA900094BDA /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A44692C1B2CA900094BDA /* WelcomeViewController.swift */; };
 		840A446F2C1B2CAA00094BDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 840A446E2C1B2CAA00094BDA /* Assets.xcassets */; };
 		840A44722C1B2CAA00094BDA /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 840A44712C1B2CAA00094BDA /* Base */; };
 		840A447A2C1B2DFE00094BDA /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 840A44792C1B2DFE00094BDA /* .gitignore */; };
@@ -21,13 +21,20 @@
 		840A448C2C1B71B700094BDA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 840A448B2C1B71B700094BDA /* Alamofire */; };
 		840A448F2C1B71C100094BDA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 840A448E2C1B71C100094BDA /* SnapKit */; };
 		840A44922C1B722A00094BDA /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 840A44912C1B722A00094BDA /* Then */; };
+		840A44942C1C0BA200094BDA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A44932C1C0BA200094BDA /* Constants.swift */; };
+		840A44962C1C111600094BDA /* LargeCapsuleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A44952C1C111600094BDA /* LargeCapsuleButton.swift */; };
+		840A449B2C1C16C500094BDA /* AlfaSlabOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 840A449A2C1C16C500094BDA /* AlfaSlabOne-Regular.ttf */; };
+		840A449E2C1C1C7400094BDA /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A449D2C1C1C7400094BDA /* Configurable.swift */; };
+		840A44A02C1C298400094BDA /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A449F2C1C298400094BDA /* ProfileSettingViewController.swift */; };
+		840A44A22C1C29B900094BDA /* ProfileImageSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A44A12C1C29B900094BDA /* ProfileImageSettingViewController.swift */; };
+		840A44C62C1C457900094BDA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A44C52C1C457900094BDA /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		840A44622C1B2CA900094BDA /* Meaning Out.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meaning Out.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		840A44652C1B2CA900094BDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		840A44672C1B2CA900094BDA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		840A44692C1B2CA900094BDA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		840A44692C1B2CA900094BDA /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		840A446E2C1B2CAA00094BDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		840A44712C1B2CAA00094BDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		840A44732C1B2CAA00094BDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -36,6 +43,13 @@
 		840A447D2C1B6B7C00094BDA /* APIURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIURL.swift; sourceTree = "<group>"; };
 		840A447F2C1B6CF600094BDA /* ShoppingDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingDTO.swift; sourceTree = "<group>"; };
 		840A44822C1B713300094BDA /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		840A44932C1C0BA200094BDA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		840A44952C1C111600094BDA /* LargeCapsuleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCapsuleButton.swift; sourceTree = "<group>"; };
+		840A449A2C1C16C500094BDA /* AlfaSlabOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlfaSlabOne-Regular.ttf"; sourceTree = "<group>"; };
+		840A449D2C1C1C7400094BDA /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
+		840A449F2C1C298400094BDA /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
+		840A44A12C1C29B900094BDA /* ProfileImageSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSettingViewController.swift; sourceTree = "<group>"; };
+		840A44C52C1C457900094BDA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +71,7 @@
 		840A44592C1B2CA900094BDA = {
 			isa = PBXGroup;
 			children = (
+				840A44792C1B2DFE00094BDA /* .gitignore */,
 				840A44642C1B2CA900094BDA /* Meaning Out */,
 				840A44632C1B2CA900094BDA /* Products */,
 			);
@@ -73,16 +88,16 @@
 		840A44642C1B2CA900094BDA /* Meaning Out */ = {
 			isa = PBXGroup;
 			children = (
-				840A44812C1B6E5000094BDA /* App */,
-				840A447F2C1B6CF600094BDA /* ShoppingDTO.swift */,
-				840A447D2C1B6B7C00094BDA /* APIURL.swift */,
+				840A449C2C1C1BD500094BDA /* Protocols */,
+				840A44932C1C0BA200094BDA /* Constants.swift */,
 				840A44822C1B713300094BDA /* Network.swift */,
-				840A44692C1B2CA900094BDA /* ViewController.swift */,
-				840A446E2C1B2CAA00094BDA /* Assets.xcassets */,
-				840A44702C1B2CAA00094BDA /* LaunchScreen.storyboard */,
+				840A447D2C1B6B7C00094BDA /* APIURL.swift */,
+				840A447F2C1B6CF600094BDA /* ShoppingDTO.swift */,
+				840A44C52C1C457900094BDA /* SearchViewController.swift */,
+				840A44812C1B6E5000094BDA /* App */,
+				840A44972C1C112200094BDA /* WelcomeFlow */,
 				840A44732C1B2CAA00094BDA /* Info.plist */,
-				840A44792C1B2DFE00094BDA /* .gitignore */,
-				840A447B2C1B603400094BDA /* Configuration.xcconfig */,
+				840A44982C1C164000094BDA /* Resources */,
 			);
 			path = "Meaning Out";
 			sourceTree = "<group>";
@@ -94,6 +109,36 @@
 				840A44672C1B2CA900094BDA /* SceneDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		840A44972C1C112200094BDA /* WelcomeFlow */ = {
+			isa = PBXGroup;
+			children = (
+				840A44692C1B2CA900094BDA /* WelcomeViewController.swift */,
+				840A44952C1C111600094BDA /* LargeCapsuleButton.swift */,
+				840A449F2C1C298400094BDA /* ProfileSettingViewController.swift */,
+				840A44A12C1C29B900094BDA /* ProfileImageSettingViewController.swift */,
+			);
+			path = WelcomeFlow;
+			sourceTree = "<group>";
+		};
+		840A44982C1C164000094BDA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				840A449A2C1C16C500094BDA /* AlfaSlabOne-Regular.ttf */,
+				840A44702C1B2CAA00094BDA /* LaunchScreen.storyboard */,
+				840A446E2C1B2CAA00094BDA /* Assets.xcassets */,
+				840A447B2C1B603400094BDA /* Configuration.xcconfig */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		840A449C2C1C1BD500094BDA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				840A449D2C1C1C7400094BDA /* Configurable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +215,7 @@
 			files = (
 				840A446F2C1B2CAA00094BDA /* Assets.xcassets in Resources */,
 				840A447A2C1B2DFE00094BDA /* .gitignore in Resources */,
+				840A449B2C1C16C500094BDA /* AlfaSlabOne-Regular.ttf in Resources */,
 				840A44722C1B2CAA00094BDA /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,11 +228,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				840A447E2C1B6B7C00094BDA /* APIURL.swift in Sources */,
-				840A446A2C1B2CA900094BDA /* ViewController.swift in Sources */,
+				840A446A2C1B2CA900094BDA /* WelcomeViewController.swift in Sources */,
 				840A44832C1B713300094BDA /* Network.swift in Sources */,
 				840A44662C1B2CA900094BDA /* AppDelegate.swift in Sources */,
+				840A44942C1C0BA200094BDA /* Constants.swift in Sources */,
 				840A44802C1B6CF600094BDA /* ShoppingDTO.swift in Sources */,
+				840A44C62C1C457900094BDA /* SearchViewController.swift in Sources */,
+				840A449E2C1C1C7400094BDA /* Configurable.swift in Sources */,
+				840A44A02C1C298400094BDA /* ProfileSettingViewController.swift in Sources */,
 				840A44682C1B2CA900094BDA /* SceneDelegate.swift in Sources */,
+				840A44962C1C111600094BDA /* LargeCapsuleButton.swift in Sources */,
+				840A44A22C1C29B900094BDA /* ProfileImageSettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +309,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -315,7 +367,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
