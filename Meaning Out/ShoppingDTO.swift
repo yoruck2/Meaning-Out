@@ -18,7 +18,7 @@ struct Item: Codable {
     let title: String
     let link: String
     let image: String
-    let lprice, hprice, mallName, productID: String
+    let lprice, hprice, mallName, productId: String
     let productType: String
 //    let brand, maker: Brand
 //    let category1: Category1
@@ -28,7 +28,7 @@ struct Item: Codable {
 
     enum CodingKeys: String, CodingKey {
         case title, link, image, lprice, hprice, mallName
-        case productID = "productId"
+        case productId
         case productType
     }
 }

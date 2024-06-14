@@ -25,7 +25,6 @@ enum APIHeaders {
             keyName = "X_Naver_Client_Secret"
         }
         guard let key = Bundle.main.object(forInfoDictionaryKey: keyName) as? String else {
-            print("없다노")
             assertionFailure("헤더를 찾을 수 없음")
             return ""
         }
