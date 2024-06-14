@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+@objc
+protocol Configurable: AnyObject {
+    func configureHierachy()
+    func configureLayout()
+    @objc optional func configureUI()
+}
