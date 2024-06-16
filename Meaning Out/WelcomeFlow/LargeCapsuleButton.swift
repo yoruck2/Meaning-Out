@@ -38,9 +38,9 @@ class LargeCapsuleButton: UIButton {
             }
             set {
                 if newValue {
-                    backgroundColor = UIColor.mainColorSelected
+                    backgroundColor = .mainColorSelected
                 } else {
-                    backgroundColor = Color.mainColor
+                    backgroundColor = .main
                 }
             }
         }
@@ -50,8 +50,8 @@ class LargeCapsuleButton: UIButton {
         
         nextView = style.setNextVC()
         setTitle(style.rawValue, for: .normal)
-        titleLabel?.font =  Font.bold15
-        backgroundColor = Color.mainColor
+        titleLabel?.font =  Font.bold16
+        backgroundColor = .main
         layer.cornerRadius = 20
         addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }

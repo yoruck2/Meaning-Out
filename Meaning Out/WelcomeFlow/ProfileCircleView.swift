@@ -7,15 +7,22 @@
 
 import UIKit
 
-class ProfileCircleView: RoundView {
+import SnapKit
 
-    let profileImageView = UIImageView().then {
-        $0.image = UIImage(resource: .profile0)
+class ProfileCircleView: UIView {
+    
+    lazy var profileImageView = RoundView().then {
+        $0.innerImageView.image = UIImage(resource: .profile0)
         $0.contentMode = .scaleAspectFill
+        $0.layer.borderColor = UIColor(resource: .main).cgColor
+        $0.layer.borderWidth = 5
     }
     
-    let cameraBadge = UIImageView().then {
-        $0.image = UIImage(systemName: "camera.fill")
+    lazy var cameraBadge = RoundView().then {
+        
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 12, weight: .light)
+        $0.innerImageView.image = UIImage(systemName: "camera.fill",withConfiguration: imageConfig)
+        $0.innerImageView.contentMode = .center
         $0.tintColor = .white
         $0.backgroundColor = .main
     }
@@ -23,16 +30,31 @@ class ProfileCircleView: RoundView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        configureHierachy()
+        configureLayout()
         
-        self.layer.borderColor = UIColor(resource: .main).cgColor
-        self.layer.borderWidth = 3
     }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configureHierachy() {
+        addSubview(profileImageView)
+        addSubview(cameraBadge)
+    }
     
-    
+    func configureLayout() {
+        
+        profileImageView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        cameraBadge.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(5)
+            $0.bottom.equalToSuperview().inset(5)
+            $0.width.equalTo(profileImageView.snp.width).multipliedBy(0.25)
+            $0.height.equalTo(cameraBadge.snp.width)
+        }
+    }
 }
