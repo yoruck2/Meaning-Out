@@ -12,12 +12,12 @@ import SnapKit
 
 
 
-class WelcomeViewController: UIViewController, Configurable {
-
+class WelcomeViewController: MeaningOutViewController, Configurable {
+    
     let mainTitleLabel = UILabel().then {
         $0.text = "MeaningOut"
         $0.font = Font.mainTitle
-        $0.textColor = Color.mainColor
+        $0.textColor = .main
         $0.textAlignment = .center
     }
     
@@ -27,10 +27,10 @@ class WelcomeViewController: UIViewController, Configurable {
     }
     
     let startButton = LargeCapsuleButton(style: .start)
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
+        
         configureHierachy()
         configureLayout()
         startButton.delegate = self
@@ -39,8 +39,8 @@ class WelcomeViewController: UIViewController, Configurable {
         Network.requestSearchResult(query: "가방")
     }
     
-    func configureUI() {
-        view.backgroundColor = .white
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
     }
     
     func configureHierachy() {
@@ -52,12 +52,13 @@ class WelcomeViewController: UIViewController, Configurable {
     func configureLayout() {
         mainTitleLabel.snp.makeConstraints {
             $0.centerX.equalTo(view.safeAreaLayoutGuide)
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(50)
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(100)
         }
         welcomeImageView.snp.makeConstraints {
             $0.centerX.equalTo(view.safeAreaLayoutGuide)
-            $0.top.equalTo(mainTitleLabel).offset(50)
+            $0.top.equalTo(mainTitleLabel).offset(140)
         }
+        
         startButton.snp.makeConstraints {
             $0.centerX.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(50)
@@ -66,11 +67,9 @@ class WelcomeViewController: UIViewController, Configurable {
     }
 }
 
-
 extension WelcomeViewController: ButtonDelegate {
     
     func transfer(data: UIViewController) {
-        print(#function)
         navigationController?.pushViewController(data, animated: true)
     }
 }
