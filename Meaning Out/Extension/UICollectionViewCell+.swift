@@ -7,6 +7,8 @@
 
 import UIKit
 
-class UICollectionViewCell_: UICollectionViewCell {
-    
+extension UICollectionViewCell {
+    static var id: String {
+        return String(describing: self)
+    }
 }
