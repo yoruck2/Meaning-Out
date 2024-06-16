@@ -11,19 +11,22 @@ class MeaningOutTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let firstVC = UINavigationController(rootViewController: SearchViewController())
+        let secondVC = UINavigationController(rootViewController: SettingViewController())
 
-        // Do any additional setup after loading the view.
+        
+        setViewControllers([firstVC, secondVC],
+                                            animated: true)
+        tabBar.tintColor = .main
+        tabBar.backgroundColor = .white
+        
+        if let items = tabBar.items {
+            items[0].image = UIImage(systemName: "person")
+            items[0].title = "검색"
+        
+            items[1].image = UIImage(systemName: "magnifyingglass")
+            items[1].title = "설정"
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
