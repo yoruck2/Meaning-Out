@@ -12,8 +12,8 @@ import Then
 
 class ProfileSettingViewController: MeaningOutViewController, Configurable {
     
-    let profileCircleView = ProfileCircleView().then {
-        let tapImageViewRecognizer = UITapGestureRecognizer(target: ProfileSettingViewController.self,
+    lazy var profileCircleView = ProfileCircleView().then {
+        let tapImageViewRecognizer = UITapGestureRecognizer(target: self,
                                                             action: #selector(imageTapped))
         $0.isUserInteractionEnabled = true
         $0.addGestureRecognizer(tapImageViewRecognizer)
@@ -26,7 +26,7 @@ class ProfileSettingViewController: MeaningOutViewController, Configurable {
         $0.leftViewMode = .always
         $0.rightViewMode = .always
         $0.placeholder = "닉네임을 입력해주세요 :)"
-        $0.addBottomBorder(with: .lightGray, width: 2)
+        $0.addBottomBorder(with: .lighterGray, width: 2)
     }
     
     let nicknameGuideLabel = UILabel().then {
@@ -35,8 +35,8 @@ class ProfileSettingViewController: MeaningOutViewController, Configurable {
         $0.isHidden = true
     }
     
-    let completeButton = LargeCapsuleButton(style: .complete).then {
-        $0.addTarget(ProfileSettingViewController.self, 
+    lazy var completeButton = LargeCapsuleButton(style: .complete).then {
+        $0.addTarget(self,
                      action: #selector(completeButtonTapped),
                      for: .touchUpInside)
     }
@@ -47,7 +47,7 @@ class ProfileSettingViewController: MeaningOutViewController, Configurable {
         configureHierachy()
         configureLayout()
         configureUI()
-//        completeButton.addTarget(self, action: #selector(completeButtonTapped), for: .touchUpInside)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,7 +68,7 @@ class ProfileSettingViewController: MeaningOutViewController, Configurable {
     func configureLayout() {
         profileCircleView.snp.makeConstraints {
             $0.centerX.equalTo(view.safeAreaLayoutGuide)
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(20)
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(30)
             $0.width.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.3)
             $0.height.equalTo(profileCircleView.snp.width)
         }
@@ -91,18 +91,26 @@ class ProfileSettingViewController: MeaningOutViewController, Configurable {
     
     @objc
     func completeButtonTapped() {
-        
+
+        let tabBar = MeaningOutTabBarController()
+        tabBar.modalPresentationStyle = .fullScreen
+        tabBar.modalTransitionStyle = .crossDissolve
+        present(tabBar, animated: true) 
+//        {
+//            self.navigationController?.popToRootViewController(animated: false)
+//       }
     }
     
     @objc 
     func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        navigationController?.pushViewController(ProfileSettingViewController(), animated: true)
+        navigationController?.pushViewController(ProfileImageSettingViewController(), animated: true)
+        
     }
 }
 
-extension ProfileSettingViewController: UITextFieldDelegate {
+//extension ProfileSettingViewController: UITextFieldDelegate {
 //    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        dismissKeyboard()
+//        true
 //    }
-
-}
+//
+//}
