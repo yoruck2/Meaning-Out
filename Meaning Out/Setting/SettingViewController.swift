@@ -6,3 +6,25 @@
 //
 
 import Foundation
+
+class SettingViewController: MeaningOutViewController, Configurable {
+    
+    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureUI()
+    }
+    
+    func configureUI() {
+        navigationItem.title = "SETTING"
+    }
+    func configureHierachy() {
+         
+    }
+    
+    func configureLayout() {
+         
+    }
+    
+}

@@ -9,28 +9,20 @@ import UIKit
 
 class MeaningOutViewController: UIViewController {
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        let backBarButtonItem = UIBarButtonItem(title: "n",
-                                                style: .plain,
-                                                target: self,
-                                                action: #selector(popVC))
-        backBarButtonItem.tintColor = .black
-        backBarButtonItem.image = UIImage(systemName: "chevron.backward")
-        navigationItem.leftBarButtonItem = backBarButtonItem
-        
-        self.navigationItem.leftBarButtonItem?.tintColor = .green
-        self.navigationItem.backBarButtonItem = backBarButtonItem
-//        self.navigationItem.setLeftBarButton(backBarButtonItem, animated: true)
+        view.backgroundColor = .white
+        configureNavigationBar()
+        hideKeyboardWhenTappedAround()
     }
-    
-    
-    @objc
-    func popVC() {
-        popViewController(animated: true)
+    func configureNavigationBar() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.standardAppearance = appearance
+        
+        navigationItem.backButtonDisplayMode = .minimal
+        navigationController?.navigationBar.tintColor = .black
     }
-    
 }
