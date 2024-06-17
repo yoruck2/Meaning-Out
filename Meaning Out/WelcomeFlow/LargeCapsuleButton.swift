@@ -8,10 +8,6 @@
 import UIKit
 import Then
 
-protocol ButtonDelegate: AnyObject {
-    func transfer(data: UIViewController)
-}
-
 enum LargeCapsuleButtonStyle: String {
     case start = "시작하기"
     case complete = "완료"
@@ -28,28 +24,35 @@ enum LargeCapsuleButtonStyle: String {
 
 class LargeCapsuleButton: UIButton {
     
-    weak var delegate: ButtonDelegate?
+    weak var delegate: SendDataDelegate?
     
     var nextView = UIViewController()
     
     override var isHighlighted: Bool {
-            get {
-                return super.isHighlighted
-            }
-            set {
-                if newValue {
-                    backgroundColor = .mainColorSelected
-                } else {
-                    backgroundColor = .main
-                }
+        get {
+            return super.isHighlighted
+        }
+        set {
+            if newValue {
+                backgroundColor = .mainColorSelected
+            } else {
+                backgroundColor = .main
             }
         }
+    }
+    
+    override var isEnabled: Bool {
+        didSet {
+            alpha = isEnabled ? 1.0 : 0.5
+        }
+    }
     
     init(style: LargeCapsuleButtonStyle) {
         super.init(frame: .zero)
         
         nextView = style.setNextVC()
         setTitle(style.rawValue, for: .normal)
+        
         titleLabel?.font =  Font.bold16
         backgroundColor = .main
         layer.cornerRadius = 20
@@ -59,11 +62,10 @@ class LargeCapsuleButton: UIButton {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-extension LargeCapsuleButton {
+    
     @objc
     func buttonTapped() {
         delegate?.transfer(data: nextView)
     }
 }
+

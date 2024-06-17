@@ -12,7 +12,6 @@ import SnapKit
 class ProfileCircleView: UIView {
     
     lazy var profileImageView = RoundView().then {
-        $0.innerImageView.image = UIImage(resource: .profile0)
         $0.contentMode = .scaleAspectFill
         $0.layer.borderColor = UIColor(resource: .main).cgColor
         $0.layer.borderWidth = 5

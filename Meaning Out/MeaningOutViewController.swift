@@ -21,8 +21,15 @@ class MeaningOutViewController: UIViewController {
         appearance.configureWithOpaqueBackground()
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.standardAppearance = appearance
-        
-        navigationItem.backButtonDisplayMode = .minimal
         navigationController?.navigationBar.tintColor = .black
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"),
+                                                           style: .plain,
+                                                           target: self,
+                                                           action: #selector(backbuttonTapped))
+    }
+    
+    @objc
+    func backbuttonTapped() {
+        self.navigationController?.popViewController(animated: true)
     }
 }

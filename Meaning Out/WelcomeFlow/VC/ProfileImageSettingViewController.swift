@@ -10,12 +10,12 @@ import UIKit
 import SnapKit
 import Then
 
+// TODO: 진입 시 적용되어있는 이미지가 highlited 가 되어야 함
 
 class ProfileImageSettingViewController: MeaningOutViewController, Configurable {
- 
-    let imageRange = 0...11
     
-    let profileCircleView = ProfileCircleView()
+    var profileCircleView = ProfileCircleView()
+    weak var delegate: ProfileImageSettingDelegate?
     
     lazy var profileImageSettingCollectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
     
@@ -32,6 +32,7 @@ class ProfileImageSettingViewController: MeaningOutViewController, Configurable 
         layout.sectionInset = UIEdgeInsets(top: sectionSpacing, left: sectionSpacing, bottom: sectionSpacing, right: sectionSpacing)
         return layout
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +41,11 @@ class ProfileImageSettingViewController: MeaningOutViewController, Configurable 
         configureLayout()
         configureCollectionView()
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print(#function)
+        delegate?.didSelectProfileImage(profileCircleView.profileImageView.innerImageView.image!)
     }
     
     func configureHierachy() {
@@ -60,7 +66,6 @@ class ProfileImageSettingViewController: MeaningOutViewController, Configurable 
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
             $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
-        
     }
     
     func configureUI() {
@@ -76,8 +81,6 @@ extension ProfileImageSettingViewController: UICollectionViewDelegate, UICollect
         profileImageSettingCollectionView.register(ProfileImageSettingCollectionViewCell.self, forCellWithReuseIdentifier: ProfileImageSettingCollectionViewCell.id)
     }
     
-    
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         12
     }
@@ -85,25 +88,23 @@ extension ProfileImageSettingViewController: UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileImageSettingCollectionViewCell.id, for: indexPath) as! ProfileImageSettingCollectionViewCell
         
-        print(indexPath.row)
-        print(indexPath.item)
-        print(indexPath.row)
-        
         cell.profileImageView.image = UIImage(named: "profile_" + "\(indexPath.item)")
-//        cell.imageNumber = indexPath.item
+//        if profileCircleView.profileImageView.innerImageView.image?.isEqual(cell.profileImageView.image) == true {
+            print(#function)
+//            cell.profileImageView.isHighlighted = true
+//            cell.profileImageView.layer.borderColor = UIColor(resource: .main).cgColor
+//            cell.profileImageView.layer.borderWidth = 3
+//            cell.profileImageView.alpha = 1
+//        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! ProfileImageSettingCollectionViewCell
-        
+        print(#function)
         profileCircleView.profileImageView.innerImageView.image = cell.profileImageView.image
     }
 }
 
-extension ProfileImageSettingViewController {
-    func transfer(data: UIImage) {
-        print(#function)
-//        profileCircleView.profileImageView.innerImageView.image = data
-    }
-}
+
+

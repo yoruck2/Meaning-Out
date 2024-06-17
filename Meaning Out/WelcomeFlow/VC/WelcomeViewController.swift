@@ -67,9 +67,9 @@ class WelcomeViewController: MeaningOutViewController, Configurable {
     }
 }
 
-extension WelcomeViewController: ButtonDelegate {
+extension WelcomeViewController: SendDataDelegate {
     
-    func transfer(data: UIViewController) {
-        navigationController?.pushViewController(data, animated: true)
+    func transfer(data: Any) {
+        navigationController?.pushViewController(data as! UIViewController, animated: true)
     }
 }

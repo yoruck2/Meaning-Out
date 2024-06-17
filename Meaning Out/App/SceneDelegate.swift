@@ -17,10 +17,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: scene)
-        let vc = UINavigationController(rootViewController: WelcomeViewController())
-        window?.rootViewController = vc
+        if UserDefaultsHelper.standard.nickname.isEmpty {
+            let vc = UINavigationController(rootViewController: WelcomeViewController())
+            window?.rootViewController = vc
+        } else {
+            let vc = MeaningOutTabBarController()
+            window?.rootViewController = vc
+        }
         window?.makeKeyAndVisible()
-        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

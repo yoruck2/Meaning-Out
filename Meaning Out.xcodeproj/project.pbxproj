@@ -33,11 +33,17 @@
 		840A44CE2C1C71E900094BDA /* ProfileCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A44CD2C1C71E900094BDA /* ProfileCircleView.swift */; };
 		840A44D02C1C734D00094BDA /* TextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A44CF2C1C734D00094BDA /* TextField+.swift */; };
 		840A44D52C1DC13800094BDA /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A44D42C1DC13800094BDA /* UIViewController+.swift */; };
-		840A44D82C1DD5ED00094BDA /* UICollectionViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A44D72C1DD5ED00094BDA /* UICollectionViewCell+.swift */; };
+		840A44D82C1DD5ED00094BDA /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A44D72C1DD5ED00094BDA /* UIView+.swift */; };
 		840A44DA2C1DD62E00094BDA /* ProfileImageSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A44D92C1DD62E00094BDA /* ProfileImageSettingCollectionViewCell.swift */; };
 		840A44DC2C1E9F5B00094BDA /* ProfileSettingCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A44DB2C1E9F5B00094BDA /* ProfileSettingCircleView.swift */; };
 		840A44DE2C1ED62400094BDA /* MeaningOutTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A44DD2C1ED62400094BDA /* MeaningOutTabBarController.swift */; };
 		840A44E12C1ED6E300094BDA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A44E02C1ED6E300094BDA /* SettingViewController.swift */; };
+		840A44E32C1F0F8300094BDA /* SendDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A44E22C1F0F8300094BDA /* SendDataDelegate.swift */; };
+		840A44E72C1F8D3700094BDA /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A44E62C1F8D3700094BDA /* UserDefaultsHelper.swift */; };
+		840A45152C1FE19800094BDA /* recentSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A45142C1FE19800094BDA /* recentSearchTableViewCell.swift */; };
+		840A45172C202C9A00094BDA /* TableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A45162C202C9A00094BDA /* TableViewHeader.swift */; };
+		840A45192C20719800094BDA /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A45182C20719800094BDA /* SearchResultViewController.swift */; };
+		840A451B2C2082BF00094BDA /* ProfileAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A451A2C2082BF00094BDA /* ProfileAreaView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,11 +71,17 @@
 		840A44CD2C1C71E900094BDA /* ProfileCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCircleView.swift; sourceTree = "<group>"; };
 		840A44CF2C1C734D00094BDA /* TextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+.swift"; sourceTree = "<group>"; };
 		840A44D42C1DC13800094BDA /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
-		840A44D72C1DD5ED00094BDA /* UICollectionViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+.swift"; sourceTree = "<group>"; };
+		840A44D72C1DD5ED00094BDA /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		840A44D92C1DD62E00094BDA /* ProfileImageSettingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSettingCollectionViewCell.swift; sourceTree = "<group>"; };
 		840A44DB2C1E9F5B00094BDA /* ProfileSettingCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingCircleView.swift; sourceTree = "<group>"; };
 		840A44DD2C1ED62400094BDA /* MeaningOutTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeaningOutTabBarController.swift; sourceTree = "<group>"; };
 		840A44E02C1ED6E300094BDA /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		840A44E22C1F0F8300094BDA /* SendDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendDataDelegate.swift; sourceTree = "<group>"; };
+		840A44E62C1F8D3700094BDA /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		840A45142C1FE19800094BDA /* recentSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recentSearchTableViewCell.swift; sourceTree = "<group>"; };
+		840A45162C202C9A00094BDA /* TableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeader.swift; sourceTree = "<group>"; };
+		840A45182C20719800094BDA /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		840A451A2C2082BF00094BDA /* ProfileAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAreaView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +131,7 @@
 				840A44982C1C164000094BDA /* Resources */,
 				840A44C72C1C4CBB00094BDA /* MeaningOutViewController.swift */,
 				840A44DD2C1ED62400094BDA /* MeaningOutTabBarController.swift */,
+				840A44E62C1F8D3700094BDA /* UserDefaultsHelper.swift */,
 				840A44732C1B2CAA00094BDA /* Info.plist */,
 			);
 			path = "Meaning Out";
@@ -148,7 +161,7 @@
 		840A44982C1C164000094BDA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				840A449A2C1C16C500094BDA /* AlfaSlabOne-Regular.ttf */,
+				840A450A2C1FBDF100094BDA /* Font */,
 				840A44702C1B2CAA00094BDA /* LaunchScreen.storyboard */,
 				840A446E2C1B2CAA00094BDA /* Assets.xcassets */,
 				840A447B2C1B603400094BDA /* Configuration.xcconfig */,
@@ -160,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				840A449D2C1C1C7400094BDA /* Configurable.swift */,
+				840A44E22C1F0F8300094BDA /* SendDataDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -178,6 +192,9 @@
 			isa = PBXGroup;
 			children = (
 				840A44C52C1C457900094BDA /* SearchViewController.swift */,
+				840A45162C202C9A00094BDA /* TableViewHeader.swift */,
+				840A45142C1FE19800094BDA /* recentSearchTableViewCell.swift */,
+				840A45182C20719800094BDA /* SearchResultViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -187,7 +204,7 @@
 			children = (
 				840A44CF2C1C734D00094BDA /* TextField+.swift */,
 				840A44D42C1DC13800094BDA /* UIViewController+.swift */,
-				840A44D72C1DD5ED00094BDA /* UICollectionViewCell+.swift */,
+				840A44D72C1DD5ED00094BDA /* UIView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -207,8 +224,17 @@
 			isa = PBXGroup;
 			children = (
 				840A44E02C1ED6E300094BDA /* SettingViewController.swift */,
+				840A451A2C2082BF00094BDA /* ProfileAreaView.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		840A450A2C1FBDF100094BDA /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				840A449A2C1C16C500094BDA /* AlfaSlabOne-Regular.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,14 +324,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				840A447E2C1B6B7C00094BDA /* APIURL.swift in Sources */,
+				840A451B2C2082BF00094BDA /* ProfileAreaView.swift in Sources */,
 				840A44E12C1ED6E300094BDA /* SettingViewController.swift in Sources */,
 				840A44DC2C1E9F5B00094BDA /* ProfileSettingCircleView.swift in Sources */,
 				840A44CC2C1C52FC00094BDA /* RoundView.swift in Sources */,
-				840A44D82C1DD5ED00094BDA /* UICollectionViewCell+.swift in Sources */,
+				840A44D82C1DD5ED00094BDA /* UIView+.swift in Sources */,
+				840A44E72C1F8D3700094BDA /* UserDefaultsHelper.swift in Sources */,
 				840A44D52C1DC13800094BDA /* UIViewController+.swift in Sources */,
 				840A446A2C1B2CA900094BDA /* WelcomeViewController.swift in Sources */,
 				840A44832C1B713300094BDA /* Network.swift in Sources */,
 				840A44662C1B2CA900094BDA /* AppDelegate.swift in Sources */,
+				840A45192C20719800094BDA /* SearchResultViewController.swift in Sources */,
+				840A45172C202C9A00094BDA /* TableViewHeader.swift in Sources */,
 				840A44942C1C0BA200094BDA /* Constants.swift in Sources */,
 				840A44802C1B6CF600094BDA /* ShoppingDTO.swift in Sources */,
 				840A44C82C1C4CBB00094BDA /* MeaningOutViewController.swift in Sources */,
@@ -315,6 +345,8 @@
 				840A44A02C1C298400094BDA /* ProfileSettingViewController.swift in Sources */,
 				840A44682C1B2CA900094BDA /* SceneDelegate.swift in Sources */,
 				840A44CE2C1C71E900094BDA /* ProfileCircleView.swift in Sources */,
+				840A45152C1FE19800094BDA /* recentSearchTableViewCell.swift in Sources */,
+				840A44E32C1F0F8300094BDA /* SendDataDelegate.swift in Sources */,
 				840A44962C1C111600094BDA /* LargeCapsuleButton.swift in Sources */,
 				840A44DA2C1DD62E00094BDA /* ProfileImageSettingCollectionViewCell.swift in Sources */,
 				840A44A22C1C29B900094BDA /* ProfileImageSettingViewController.swift in Sources */,

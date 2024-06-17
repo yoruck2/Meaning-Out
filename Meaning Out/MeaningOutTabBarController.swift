@@ -21,10 +21,10 @@ class MeaningOutTabBarController: UITabBarController {
         tabBar.backgroundColor = .white
         
         if let items = tabBar.items {
-            items[0].image = UIImage(systemName: "person")
+            items[0].image = UIImage(systemName: "magnifyingglass")
             items[0].title = "검색"
         
-            items[1].image = UIImage(systemName: "magnifyingglass")
+            items[1].image = UIImage(systemName: "person")
             items[1].title = "설정"
         }
     }
