@@ -11,9 +11,10 @@ import SnapKit
 import Then
 
 class recentSearchTableViewCell: UITableViewCell, Configurable {
-
-//    let recentData = String()
-
+    
+    weak var delegate: recentSearchDelegate?
+    var index: Int?
+    
     let clockImageView = UIImageView().then {
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 15, weight: .bold)
         $0.image = UIImage(systemName: "clock",withConfiguration: imageConfig)
@@ -25,11 +26,17 @@ class recentSearchTableViewCell: UITableViewCell, Configurable {
         $0.font = Font.bold15
     }
     
-    let deleteButton = UIButton().then {
+    lazy var deleteButton = UIButton().then {
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 15, weight: .bold)
         $0.setImage(UIImage(systemName: "xmark",withConfiguration: imageConfig), for: .normal)
         $0.contentMode = .center
         $0.tintColor = .darkerGray
+        $0.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+    }
+
+    @objc
+    func deleteButtonTapped() {
+        delegate?.removeRecentSearch(index: index ?? 0)
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -69,8 +76,5 @@ class recentSearchTableViewCell: UITableViewCell, Configurable {
             $0.width.equalTo(deleteButton.snp.height)
             $0.centerY.equalToSuperview()
         }
-        
-        
     }
-    
 }
