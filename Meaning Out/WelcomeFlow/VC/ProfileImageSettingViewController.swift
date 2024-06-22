@@ -44,7 +44,6 @@ class ProfileImageSettingViewController: MeaningOutViewController, Configurable 
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        print(#function)
         delegate?.didSelectProfileImage(profileCircleView.profileImageView.innerImageView.image!)
     }
     
@@ -89,19 +88,17 @@ extension ProfileImageSettingViewController: UICollectionViewDelegate, UICollect
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileImageSettingCollectionViewCell.id, for: indexPath) as! ProfileImageSettingCollectionViewCell
         
         cell.profileImageView.image = UIImage(named: "profile_" + "\(indexPath.item)")
-//        if profileCircleView.profileImageView.innerImageView.image?.isEqual(cell.profileImageView.image) == true {
-            print(#function)
+        if profileCircleView.profileImageView.innerImageView.image == cell.profileImageView.image {
 //            cell.profileImageView.isHighlighted = true
 //            cell.profileImageView.layer.borderColor = UIColor(resource: .main).cgColor
 //            cell.profileImageView.layer.borderWidth = 3
 //            cell.profileImageView.alpha = 1
-//        }
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! ProfileImageSettingCollectionViewCell
-        print(#function)
         profileCircleView.profileImageView.innerImageView.image = cell.profileImageView.image
     }
 }

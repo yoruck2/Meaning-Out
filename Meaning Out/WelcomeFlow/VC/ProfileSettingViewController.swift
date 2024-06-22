@@ -20,10 +20,12 @@ enum NicknameGuide: String {
 class ProfileSettingViewController: MeaningOutViewController, Configurable {
     
     lazy var profileCircleView = ProfileCircleView().then {
-        
-        let imageNumber = Int.random(in: 0...11)
-        $0.profileImageView.innerImageView.image = UIImage(named: "profile_\(imageNumber)")
-        
+        if UserDefaultsHelper.standard.nickname.isEmpty {
+            let imageNumber = Int.random(in: 0...11)
+            $0.profileImageView.innerImageView.image = UIImage(named: "profile_\(imageNumber)")
+        } else {
+            $0.profileImageView.innerImageView.image = UserDefaultsHelper.standard.profileImage
+        }
         let tapImageViewRecognizer = UITapGestureRecognizer(target: self,
                                                             action: #selector(imageTapped))
         $0.isUserInteractionEnabled = true
@@ -62,8 +64,6 @@ class ProfileSettingViewController: MeaningOutViewController, Configurable {
         configureHierachy()
         configureLayout()
         configureUI()
-        navigationItem.leftBarButtonItem?.isEnabled = false
-        navigationItem.leftBarButtonItem?.tintColor = .white
     }
     
     @objc
@@ -121,6 +121,7 @@ class ProfileSettingViewController: MeaningOutViewController, Configurable {
         }
         UserDefaultsHelper.standard.nickname = nickname
         UserDefaultsHelper.standard.profileImage = profileImage
+        UserDefaultsHelper.standard.signUpDate = Date.todayString()
         
         let tabBar = MeaningOutTabBarController()
 //        tabBar.modalPresentationStyle = .fullScreen

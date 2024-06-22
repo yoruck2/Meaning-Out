@@ -89,10 +89,8 @@ class UserDefaultsHelper {
             // url에 data을 저장
             do {
                 try data.write(to: url)
-                
                 // url 경로를 userDefaults에 저장
                 userDefaults.set(url, forKey: Key.profileImage.rawValue)
-                print("이미지 저장됨")
             } catch {
                 print(error)
             }

@@ -20,7 +20,7 @@ class ProfileCircleView: UIView {
     lazy var cameraBadge = RoundView().then {
         
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 12, weight: .light)
-        $0.innerImageView.image = UIImage(systemName: "camera.fill",withConfiguration: imageConfig)
+        $0.innerImageView.image = UIImage(systemName: "camera.fill", withConfiguration: imageConfig)
         $0.innerImageView.contentMode = .center
         $0.tintColor = .white
         $0.backgroundColor = .main

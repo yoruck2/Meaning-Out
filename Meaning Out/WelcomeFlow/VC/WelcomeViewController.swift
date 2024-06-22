@@ -10,8 +10,6 @@ import UIKit
 import Then
 import SnapKit
 
-
-
 class WelcomeViewController: MeaningOutViewController, Configurable {
     
     let mainTitleLabel = UILabel().then {
@@ -22,7 +20,7 @@ class WelcomeViewController: MeaningOutViewController, Configurable {
     }
     
     let welcomeImageView = UIImageView().then {
-        $0.image = UIImage(named: "launch")
+        $0.image = UIImage(resource: .launch)
         $0.contentMode = .scaleAspectFit
     }
     
@@ -34,9 +32,6 @@ class WelcomeViewController: MeaningOutViewController, Configurable {
         configureHierachy()
         configureLayout()
         startButton.delegate = self
-        
-        // 네트워크 test
-        Network.requestSearchResult(query: "가방")
     }
     
     override func viewWillAppear(_ animated: Bool) {
