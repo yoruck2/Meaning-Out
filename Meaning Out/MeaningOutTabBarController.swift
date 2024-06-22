@@ -14,7 +14,6 @@ class MeaningOutTabBarController: UITabBarController {
         let firstVC = UINavigationController(rootViewController: SearchViewController())
         let secondVC = UINavigationController(rootViewController: SettingViewController())
 
-        
         setViewControllers([firstVC, secondVC],
                                             animated: true)
         tabBar.tintColor = .main

@@ -11,19 +11,18 @@ import Alamofire
 
 struct Network {
     
-    static func requestSearchResult(query: String) {
+    static func requestSearchResult(query: String, sort: SortPriority, page: Int, completion: @escaping (ShoppingDTO) -> Void) {
         let baseURL = APIURL.shoppingURL
-        
         let parameters: Parameters = [
             "query": query,
-            "display": 10
+            "display": 30,
+            "sort": sort.parameterValue,
+            "start": page
         ]
-        
         let headers: HTTPHeaders = [
             "X-Naver-Client-Id": APIHeaders.clientId.header,
             "X-Naver-Client-Secret": APIHeaders.clientSecret.header,
         ]
-        print("통신시작")
         AF.request(baseURL,
                    method: .get,
                    parameters: parameters,
@@ -32,7 +31,7 @@ struct Network {
         .responseDecodable(of: ShoppingDTO.self) { response in
             switch response.result {
             case .success(let data):
-                print(data)
+                completion(data)
             case .failure(let error):
                 print(error)
             }
