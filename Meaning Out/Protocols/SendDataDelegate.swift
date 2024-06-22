@@ -14,3 +14,7 @@ protocol SendDataDelegate: AnyObject {
 protocol ProfileImageSettingDelegate: AnyObject {
     func didSelectProfileImage(_ image: UIImage)
 }
+
+protocol recentSearchDelegate: AnyObject {
+    func removeRecentSearch(index : Int)
+}
