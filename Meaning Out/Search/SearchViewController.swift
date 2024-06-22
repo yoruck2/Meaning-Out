@@ -10,12 +10,22 @@ import UIKit
 import SnapKit
 import Then
 
-class SearchViewController: MeaningOutViewController, Configurable {
-
-    var recentSearchList = [String]()
+class SearchViewController: MeaningOutViewController, Configurable, recentSearchDelegate {
+    func removeRecentSearch(index: Int) {
+        
+    }
     
-    let productSearchBar = UISearchBar().then {
-        $0.placeholder = "브랜드, 상품 등을 입력하세요."
+    var nonDuplicatedList = [String]()
+    var recentSearchList = UserDefaultsHelper.standard.recentSearchList {
+        didSet {
+            toggleEmptyStateView()
+            recentSearchTableView.reloadData()
+        }
+    }
+    
+    let productSearchBar = UISearchController().then {
+        $0.searchBar.placeholder = "브랜드, 상품 등을 입력하세요."
+        
     }
     
     let emptyStateImageView = UIImageView().then {
@@ -33,29 +43,50 @@ class SearchViewController: MeaningOutViewController, Configurable {
     @objc
     func clearRecentSearch() {
         recentSearchList.removeAll()
+        nonDuplicatedList.removeAll()
+        UserDefaultsHelper.standard.userDefaults.removeObject(forKey: Key.recentSearchList.rawValue)
         recentSearchTableView.reloadData()
     }
     
     let recentSearchTableView = UITableView()
     
+    func toggleEmptyStateView() {
+        if recentSearchList.isEmpty {
+            recentSearchTableView.isHidden = true
+            header.isHidden = true
+        } else {
+            recentSearchTableView.isHidden = false
+            header.isHidden = false
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        recentSearchList = ["qwer","asdf","zxcv"]
+        
+        toggleEmptyStateView()
         configureUI()
         configureHierachy()
         configureLayout()
         ConfigureTableView()
         
-        productSearchBar.delegate = self
+        productSearchBar.searchBar.delegate = self
     }
-    func configureUI() {
+    
+    override func viewWillAppear(_ animated: Bool) {
         let nickname = UserDefaultsHelper.standard.nickname
         navigationItem.title = "\(nickname)'s MEANING OUT"
+
+    }
+    func configureUI() {
+        navigationItem.searchController = productSearchBar
+        navigationItem.searchController?.hidesNavigationBarDuringPresentation = true
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController?.obscuresBackgroundDuringPresentation = false
         navigationItem.leftBarButtonItem = nil
         recentSearchTableView.rowHeight = 40
     }
     func configureHierachy() {
-        view.addSubview(productSearchBar)
+        view.addSubview(productSearchBar.searchBar)
         view.addSubview(emptyStateImageView)
         view.addSubview(emptyStateLabel)
         view.addSubview(header)
@@ -63,18 +94,15 @@ class SearchViewController: MeaningOutViewController, Configurable {
     }
     
     func configureLayout() {
-        productSearchBar.snp.makeConstraints {
-            $0.horizontalEdges.top.equalTo(view.safeAreaLayoutGuide)
-        }
         emptyStateImageView.snp.makeConstraints {
-            $0.center.equalTo(view.safeAreaLayoutGuide)
+            $0.center.equalToSuperview()
         }
         emptyStateLabel.snp.makeConstraints {
             $0.centerX.equalTo(view.safeAreaLayoutGuide)
             $0.top.equalTo(emptyStateImageView.snp.bottom).offset(10)
         }
         header.snp.makeConstraints {
-            $0.top.equalTo(productSearchBar.snp.bottom)
+            $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(10)
             $0.height.equalTo(45)
         }
@@ -83,37 +111,38 @@ class SearchViewController: MeaningOutViewController, Configurable {
             $0.horizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide)
             $0.top.equalTo(header.snp.bottom)
         }
-        
-        
     }
-    
-}
-
-extension SearchViewController: UISearchBarDelegate {
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        navigationController?.pushViewController(SearchResultViewController(), animated: true)
-    }
-    
-    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        navigationController?.pushViewController(SearchResultViewController(), animated: true)
-        return true
-    }
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        navigationController?.pushViewController(SearchResultViewController(), animated: true)
-    }
-}
-
-extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func ConfigureTableView() {
         recentSearchTableView.separatorStyle = .none
         recentSearchTableView.delegate = self
         recentSearchTableView.dataSource = self
-        recentSearchTableView.register(recentSearchTableViewCell.self, forCellReuseIdentifier: recentSearchTableViewCell.id)
+        recentSearchTableView.register(recentSearchTableViewCell.self, 
+                                       forCellReuseIdentifier: recentSearchTableViewCell.id)
     }
- 
+}
 
+extension SearchViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text else {
+            return
+        }
+        
+        recentSearchList.insert(text, at: 0)
+        let filter = recentSearchList.filter { !nonDuplicatedList.contains($0) }
+        nonDuplicatedList.insert(contentsOf: filter, at: 0)
+        recentSearchList = nonDuplicatedList
+        UserDefaultsHelper.standard.recentSearchList = recentSearchList
+        
+        let nextVC = SearchResultViewController()
+        nextVC.searchingProduct = searchBar.text ?? ""
+        navigationController?.pushViewController(nextVC,
+                                                 animated: true)
+    }
+}
+
+extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         recentSearchList.count
@@ -121,9 +150,33 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: recentSearchTableViewCell.id, for: indexPath) as! recentSearchTableViewCell
+        cell.delegate = self
+        
         cell.productNameLabel.text = recentSearchList[indexPath.row]
+        //        cell.deleteButtonAction = { [weak self] in
+        //            print(self?.recentSearchList[indexPath.row])
+        //            self.recentSearchList.remove(at: indexPath.row)
+        //            UserDefaultsHelper.standard.recentSearchList = self.nonDuplicatedList
+        //            self.recentSearchTableView.deleteRows(at: [indexPath], with: .automatic)
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! recentSearchTableViewCell
+        
+        let nextVC = SearchResultViewController()
+        nextVC.searchingProduct = cell.productNameLabel.text ?? ""
+        navigationController?.pushViewController(nextVC,
+                                                 animated: true)
+    }
 }
+
+
+//extension SearchViewController: recentSearchDelegate {
+//    func removeRecentSearch(index: Int) {
+//        print(self?.recentSearchList[indexPath.row])
+//        self.recentSearchList.remove(at: indexPath.row)
+//        UserDefaultsHelper.standard.recentSearchList = self.nonDuplicatedList
+//        self.recentSearchTableView.deleteRows(at: [indexPath], with: .automatic)
+//    }
+//}
