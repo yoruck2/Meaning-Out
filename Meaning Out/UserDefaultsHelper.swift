@@ -7,18 +7,19 @@
 
 import UIKit
 
+enum Key: String {
+    case nickname
+    case recentSearchList
+    case cartList
+    case signUpDate
+    case profileImage
+}
+
 class UserDefaultsHelper {
     static let standard = UserDefaultsHelper()
     private init() {}
     
     let userDefaults = UserDefaults.standard
-    
-    enum Key: String {
-        case nickname
-        case recentSearchList
-        case cartList
-        case profileImage
-    }
     
     var nickname: String {
         get {
@@ -38,13 +39,22 @@ class UserDefaultsHelper {
         }
     }
     
-    var cartList: [String] {
+    var cartList: [String: Any] {
         
         get {
-            return userDefaults.stringArray(forKey: Key.cartList.rawValue) ?? []
+            return userDefaults.dictionary(forKey: Key.cartList.rawValue) ?? [:]
         }
         set {
             userDefaults.set(newValue, forKey: Key.cartList.rawValue)
+        }
+    }
+    
+    var signUpDate: String {
+        get {
+            return userDefaults.string(forKey: Key.signUpDate.rawValue) ?? ""
+        }
+        set {
+            userDefaults.set(newValue, forKey: Key.signUpDate.rawValue)
         }
     }
     
@@ -82,6 +92,7 @@ class UserDefaultsHelper {
                 
                 // url 경로를 userDefaults에 저장
                 userDefaults.set(url, forKey: Key.profileImage.rawValue)
+                print("이미지 저장됨")
             } catch {
                 print(error)
             }

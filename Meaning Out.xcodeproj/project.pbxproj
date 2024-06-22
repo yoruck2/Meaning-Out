@@ -44,6 +44,15 @@
 		840A45172C202C9A00094BDA /* TableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A45162C202C9A00094BDA /* TableViewHeader.swift */; };
 		840A45192C20719800094BDA /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A45182C20719800094BDA /* SearchResultViewController.swift */; };
 		840A451B2C2082BF00094BDA /* ProfileAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A451A2C2082BF00094BDA /* ProfileAreaView.swift */; };
+		840A451D2C2091B900094BDA /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A451C2C2091B900094BDA /* Date+.swift */; };
+		840A451F2C20998100094BDA /* SettingMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A451E2C20998100094BDA /* SettingMenuTableViewCell.swift */; };
+		840A45472C21417900094BDA /* SortButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A45462C21417900094BDA /* SortButton.swift */; };
+		840A45492C2148D100094BDA /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A45482C2148D100094BDA /* SearchResultCollectionViewCell.swift */; };
+		840A454B2C216A5E00094BDA /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A454A2C216A5E00094BDA /* CartButton.swift */; };
+		840A45532C21A4CE00094BDA /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A45522C21A4CE00094BDA /* ProfileEditViewController.swift */; };
+		8496E7982C255F78009B9238 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496E7972C255F78009B9238 /* String+.swift */; };
+		8496E79C2C2679BE009B9238 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496E79B2C2679BE009B9238 /* ProductDetailViewController.swift */; };
+		8496E79E2C26A2B3009B9238 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496E79D2C26A2B3009B9238 /* UIButton+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +91,15 @@
 		840A45162C202C9A00094BDA /* TableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeader.swift; sourceTree = "<group>"; };
 		840A45182C20719800094BDA /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		840A451A2C2082BF00094BDA /* ProfileAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAreaView.swift; sourceTree = "<group>"; };
+		840A451C2C2091B900094BDA /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		840A451E2C20998100094BDA /* SettingMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingMenuTableViewCell.swift; sourceTree = "<group>"; };
+		840A45462C21417900094BDA /* SortButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortButton.swift; sourceTree = "<group>"; };
+		840A45482C2148D100094BDA /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
+		840A454A2C216A5E00094BDA /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
+		840A45522C21A4CE00094BDA /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
+		8496E7972C255F78009B9238 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		8496E79B2C2679BE009B9238 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		8496E79D2C26A2B3009B9238 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,18 +138,19 @@
 		840A44642C1B2CA900094BDA /* Meaning Out */ = {
 			isa = PBXGroup;
 			children = (
+				840A44932C1C0BA200094BDA /* Constants.swift */,
+				840A44C92C1C51B900094BDA /* Networking */,
 				840A449C2C1C1BD500094BDA /* Protocols */,
 				840A44D12C1C735000094BDA /* Extension */,
 				840A44812C1B6E5000094BDA /* App */,
-				840A44932C1C0BA200094BDA /* Constants.swift */,
-				840A44C92C1C51B900094BDA /* Networking */,
+				840A450A2C1FBDF100094BDA /* Font */,
+				840A44C72C1C4CBB00094BDA /* MeaningOutViewController.swift */,
+				840A44DD2C1ED62400094BDA /* MeaningOutTabBarController.swift */,
+				840A44E62C1F8D3700094BDA /* UserDefaultsHelper.swift */,
 				840A44972C1C112200094BDA /* WelcomeFlow */,
 				840A44CA2C1C51EB00094BDA /* Search */,
 				840A44DF2C1ED6CC00094BDA /* Setting */,
 				840A44982C1C164000094BDA /* Resources */,
-				840A44C72C1C4CBB00094BDA /* MeaningOutViewController.swift */,
-				840A44DD2C1ED62400094BDA /* MeaningOutTabBarController.swift */,
-				840A44E62C1F8D3700094BDA /* UserDefaultsHelper.swift */,
 				840A44732C1B2CAA00094BDA /* Info.plist */,
 			);
 			path = "Meaning Out";
@@ -161,7 +180,6 @@
 		840A44982C1C164000094BDA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				840A450A2C1FBDF100094BDA /* Font */,
 				840A44702C1B2CAA00094BDA /* LaunchScreen.storyboard */,
 				840A446E2C1B2CAA00094BDA /* Assets.xcassets */,
 				840A447B2C1B603400094BDA /* Configuration.xcconfig */,
@@ -195,6 +213,10 @@
 				840A45162C202C9A00094BDA /* TableViewHeader.swift */,
 				840A45142C1FE19800094BDA /* recentSearchTableViewCell.swift */,
 				840A45182C20719800094BDA /* SearchResultViewController.swift */,
+				840A45482C2148D100094BDA /* SearchResultCollectionViewCell.swift */,
+				8496E79B2C2679BE009B9238 /* ProductDetailViewController.swift */,
+				840A454A2C216A5E00094BDA /* CartButton.swift */,
+				840A45462C21417900094BDA /* SortButton.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -205,6 +227,9 @@
 				840A44CF2C1C734D00094BDA /* TextField+.swift */,
 				840A44D42C1DC13800094BDA /* UIViewController+.swift */,
 				840A44D72C1DD5ED00094BDA /* UIView+.swift */,
+				840A451C2C2091B900094BDA /* Date+.swift */,
+				8496E7972C255F78009B9238 /* String+.swift */,
+				8496E79D2C26A2B3009B9238 /* UIButton+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -224,6 +249,8 @@
 			isa = PBXGroup;
 			children = (
 				840A44E02C1ED6E300094BDA /* SettingViewController.swift */,
+				840A45522C21A4CE00094BDA /* ProfileEditViewController.swift */,
+				840A451E2C20998100094BDA /* SettingMenuTableViewCell.swift */,
 				840A451A2C2082BF00094BDA /* ProfileAreaView.swift */,
 			);
 			path = Setting;
@@ -324,13 +351,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				840A447E2C1B6B7C00094BDA /* APIURL.swift in Sources */,
+				8496E79E2C26A2B3009B9238 /* UIButton+.swift in Sources */,
 				840A451B2C2082BF00094BDA /* ProfileAreaView.swift in Sources */,
 				840A44E12C1ED6E300094BDA /* SettingViewController.swift in Sources */,
 				840A44DC2C1E9F5B00094BDA /* ProfileSettingCircleView.swift in Sources */,
 				840A44CC2C1C52FC00094BDA /* RoundView.swift in Sources */,
+				840A451D2C2091B900094BDA /* Date+.swift in Sources */,
+				840A45472C21417900094BDA /* SortButton.swift in Sources */,
 				840A44D82C1DD5ED00094BDA /* UIView+.swift in Sources */,
+				840A451F2C20998100094BDA /* SettingMenuTableViewCell.swift in Sources */,
 				840A44E72C1F8D3700094BDA /* UserDefaultsHelper.swift in Sources */,
 				840A44D52C1DC13800094BDA /* UIViewController+.swift in Sources */,
+				840A45492C2148D100094BDA /* SearchResultCollectionViewCell.swift in Sources */,
+				8496E7982C255F78009B9238 /* String+.swift in Sources */,
 				840A446A2C1B2CA900094BDA /* WelcomeViewController.swift in Sources */,
 				840A44832C1B713300094BDA /* Network.swift in Sources */,
 				840A44662C1B2CA900094BDA /* AppDelegate.swift in Sources */,
@@ -339,6 +372,7 @@
 				840A44942C1C0BA200094BDA /* Constants.swift in Sources */,
 				840A44802C1B6CF600094BDA /* ShoppingDTO.swift in Sources */,
 				840A44C82C1C4CBB00094BDA /* MeaningOutViewController.swift in Sources */,
+				840A454B2C216A5E00094BDA /* CartButton.swift in Sources */,
 				840A44DE2C1ED62400094BDA /* MeaningOutTabBarController.swift in Sources */,
 				840A44C62C1C457900094BDA /* SearchViewController.swift in Sources */,
 				840A449E2C1C1C7400094BDA /* Configurable.swift in Sources */,
@@ -346,6 +380,8 @@
 				840A44682C1B2CA900094BDA /* SceneDelegate.swift in Sources */,
 				840A44CE2C1C71E900094BDA /* ProfileCircleView.swift in Sources */,
 				840A45152C1FE19800094BDA /* recentSearchTableViewCell.swift in Sources */,
+				8496E79C2C2679BE009B9238 /* ProductDetailViewController.swift in Sources */,
+				840A45532C21A4CE00094BDA /* ProfileEditViewController.swift in Sources */,
 				840A44E32C1F0F8300094BDA /* SendDataDelegate.swift in Sources */,
 				840A44962C1C111600094BDA /* LargeCapsuleButton.swift in Sources */,
 				840A44DA2C1DD62E00094BDA /* ProfileImageSettingCollectionViewCell.swift in Sources */,
@@ -500,6 +536,7 @@
 				DEVELOPMENT_TEAM = DB9LFYULKZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Meaning Out/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "이승현";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -533,6 +570,7 @@
 				DEVELOPMENT_TEAM = DB9LFYULKZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Meaning Out/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "이승현";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

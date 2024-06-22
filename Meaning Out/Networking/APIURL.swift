@@ -28,7 +28,6 @@ enum APIHeaders {
             assertionFailure("헤더를 찾을 수 없음")
             return ""
         }
-        print(key)
         return key
     }
 }
