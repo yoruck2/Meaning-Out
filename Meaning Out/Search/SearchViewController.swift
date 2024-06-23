@@ -10,10 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class SearchViewController: MeaningOutViewController, Configurable, recentSearchDelegate {
-    func removeRecentSearch(index: Int) {
-        
-    }
+class SearchViewController: MeaningOutViewController, Configurable {
     
     var nonDuplicatedList = [String]()
     var recentSearchList = UserDefaultsHelper.standard.recentSearchList {
@@ -25,7 +22,6 @@ class SearchViewController: MeaningOutViewController, Configurable, recentSearch
     
     let productSearchBar = UISearchController().then {
         $0.searchBar.placeholder = "브랜드, 상품 등을 입력하세요."
-        
     }
     
     let emptyStateImageView = UIImageView().then {
@@ -75,7 +71,7 @@ class SearchViewController: MeaningOutViewController, Configurable, recentSearch
     override func viewWillAppear(_ animated: Bool) {
         let nickname = UserDefaultsHelper.standard.nickname
         navigationItem.title = "\(nickname)'s MEANING OUT"
-
+        
     }
     func configureUI() {
         navigationItem.searchController = productSearchBar
@@ -117,7 +113,7 @@ class SearchViewController: MeaningOutViewController, Configurable, recentSearch
         recentSearchTableView.separatorStyle = .none
         recentSearchTableView.delegate = self
         recentSearchTableView.dataSource = self
-        recentSearchTableView.register(recentSearchTableViewCell.self, 
+        recentSearchTableView.register(recentSearchTableViewCell.self,
                                        forCellReuseIdentifier: recentSearchTableViewCell.id)
     }
 }
@@ -129,11 +125,10 @@ extension SearchViewController: UISearchBarDelegate {
             return
         }
         
-        recentSearchList.insert(text, at: 0)
-        let filter = recentSearchList.filter { !nonDuplicatedList.contains($0) }
-        nonDuplicatedList.insert(contentsOf: filter, at: 0)
-        recentSearchList = nonDuplicatedList
-        UserDefaultsHelper.standard.recentSearchList = recentSearchList
+        if !recentSearchList.contains(text) {
+            recentSearchList.insert(text, at: 0)
+            UserDefaultsHelper.standard.recentSearchList = recentSearchList
+        }
         
         let nextVC = SearchResultViewController()
         nextVC.searchingProduct = searchBar.text ?? ""
@@ -153,11 +148,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         cell.delegate = self
         
         cell.productNameLabel.text = recentSearchList[indexPath.row]
-        //        cell.deleteButtonAction = { [weak self] in
-        //            print(self?.recentSearchList[indexPath.row])
-        //            self.recentSearchList.remove(at: indexPath.row)
-        //            UserDefaultsHelper.standard.recentSearchList = self.nonDuplicatedList
-        //            self.recentSearchTableView.deleteRows(at: [indexPath], with: .automatic)
+        cell.index = indexPath.row
         return cell
     }
     
@@ -171,12 +162,9 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-
-//extension SearchViewController: recentSearchDelegate {
-//    func removeRecentSearch(index: Int) {
-//        print(self?.recentSearchList[indexPath.row])
-//        self.recentSearchList.remove(at: indexPath.row)
-//        UserDefaultsHelper.standard.recentSearchList = self.nonDuplicatedList
-//        self.recentSearchTableView.deleteRows(at: [indexPath], with: .automatic)
-//    }
-//}
+extension SearchViewController: recentSearchDelegate {
+    func removeRecentSearch(index: Int) {
+        recentSearchList = UserDefaultsHelper.standard.recentSearchList
+        recentSearchTableView.reloadData()
+    }
+}

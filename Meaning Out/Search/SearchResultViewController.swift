@@ -35,9 +35,9 @@ class SearchResultViewController: MeaningOutViewController, Configurable {
     var lowerPriceButton = SortButton(.lowerPrice)
     
     lazy var sortButtons = [accuracyButton,
-                              recentDateButton,
-                              higherPriceButton,
-                              lowerPriceButton]
+                            recentDateButton,
+                            higherPriceButton,
+                            lowerPriceButton]
     
     func setUpFilterButtons() {
         sortButtons.forEach {
@@ -53,7 +53,7 @@ class SearchResultViewController: MeaningOutViewController, Configurable {
             
             Network.requestSearchResult(query: searchingProduct, sort: sender.sortingMethod, page: page) { [self] data in
                 searchResultData = data
-                searchResultCollectionView.scrollToItem(at: IndexPath(row: 0, section: 0), 
+                searchResultCollectionView.scrollToItem(at: IndexPath(row: 0, section: 0),
                                                         at: .top,
                                                         animated: true)
             }
@@ -92,7 +92,7 @@ class SearchResultViewController: MeaningOutViewController, Configurable {
         configureLayout()
         configureCollectionView()
     }
-
+    
     func loadData() {
         Network.requestSearchResult(query: searchingProduct, sort: .accuracy, page: page) { [self] data in
             searchResultData = data

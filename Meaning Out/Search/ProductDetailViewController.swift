@@ -29,7 +29,7 @@ class ProductDetailViewController: MeaningOutViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = produtName
+        navigationItem.title = produtName.removeHTMLTags()
         configureWebView()
         configureUI()
     }
