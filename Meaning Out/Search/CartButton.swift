@@ -10,13 +10,8 @@ import UIKit
 import SnapKit
 import Then
 
-protocol CartListCountDelegate {
-    func updateCartListCount()
-}
-
 class CartButton: UIButton {
     
-    var delegate: CartListCountDelegate?
     var cellProductID: String
     
     override var isSelected: Bool {
@@ -24,7 +19,6 @@ class CartButton: UIButton {
             if self.isSelected == true {
                 print(UserDefaultsHelper.standard.cartList)
                 print(cellProductID)
-//                if cartListData?[cellProductID] != nil {
                 var tempList = UserDefaultsHelper.standard.cartList
                 tempList.updateValue(true, forKey: cellProductID)
                 UserDefaultsHelper.standard.cartList = tempList
@@ -40,7 +34,6 @@ class CartButton: UIButton {
     }
     
     init(cellProductID: String) {
-//        print(cellProductID)
         self.cellProductID = cellProductID
         super.init(frame: .zero)
         configureUI()
@@ -62,8 +55,6 @@ class CartButton: UIButton {
         setImage(.likeSelected, for: .selected)
         
         addTarget(self, action: #selector(cartButtonTapped), for: .touchUpInside)
-        
-       
     }
     
     @objc

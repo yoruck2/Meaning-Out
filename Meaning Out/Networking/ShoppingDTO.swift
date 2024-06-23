@@ -10,7 +10,7 @@ import Foundation
 struct ShoppingDTO: Codable {
     let lastBuildDate: String?
     let total, start, display: Int
-    let items: [Item]
+    var items: [Item]
 }
 
 // MARK: - Item
@@ -25,10 +25,4 @@ struct Item: Codable {
 //    let category2: Category2
 //    let category3: Category3
 //    let category4: String
-
-    enum CodingKeys: String, CodingKey {
-        case title, link, image, lprice, hprice, mallName
-        case productId
-        case productType
-    }
 }
