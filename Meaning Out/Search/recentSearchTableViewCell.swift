@@ -13,7 +13,7 @@ import Then
 class recentSearchTableViewCell: UITableViewCell, Configurable {
     
     weak var delegate: recentSearchDelegate?
-    var index: Int?
+    var index: Int = 0
     
     let clockImageView = UIImageView().then {
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 15, weight: .bold)
@@ -36,7 +36,14 @@ class recentSearchTableViewCell: UITableViewCell, Configurable {
 
     @objc
     func deleteButtonTapped() {
-        delegate?.removeRecentSearch(index: index ?? 0)
+//        let recentSearchList = UserDefaultsHelper.standard.recentSearchList
+//        guard let index = recentSearchList.indices.filter({ recentSearchList[$0] == "Chalie" }).first else {
+//            return
+//        }
+        print(#function)
+        print(index)
+        UserDefaultsHelper.standard.recentSearchList.remove(at: index)
+        delegate?.removeRecentSearch(index: index)
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

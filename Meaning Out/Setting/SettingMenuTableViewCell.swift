@@ -16,19 +16,7 @@ class SettingMenuTableViewCell: UITableViewCell, Configurable {
         $0.font = Font.medium16
     }
     
-    let cartListCountLabel = UILabel().then {
-        let cartCount = UserDefaultsHelper.standard.cartList.count
-        $0.isHidden = true
-        let attributedString = NSMutableAttributedString()
-        let imageAttachment = NSTextAttachment()
-        imageAttachment.image = UIImage(resource: .likeSelected)
-        imageAttachment.bounds = CGRect(x: 0, y: -5, width: 22, height: 22)
-        attributedString.append(NSAttributedString(attachment: imageAttachment))
-        attributedString.append(NSAttributedString(string: " \(cartCount)개의 상품"))
-        attributedString.addAttribute(.font, value: Font.bold16, range: NSRange(location: 0, length: 4))
-        
-        $0.attributedText = attributedString
-    }
+    var cartListCountLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -38,6 +26,17 @@ class SettingMenuTableViewCell: UITableViewCell, Configurable {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func makeCartListCountLabel(cartCount: Int) {
+        let attributedString = NSMutableAttributedString()
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = UIImage(resource: .likeSelected)
+        imageAttachment.bounds = CGRect(x: 0, y: -5, width: 22, height: 22)
+        attributedString.append(NSAttributedString(attachment: imageAttachment))
+        attributedString.append(NSAttributedString(string: " \(cartCount)개의 상품"))
+        attributedString.addAttribute(.font, value: Font.bold16, range: NSRange(location: 0, length: 4))
+        cartListCountLabel.attributedText = attributedString
     }
     
     func configureHierachy() {
