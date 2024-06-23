@@ -40,7 +40,6 @@ class ProfileImageSettingViewController: MeaningOutViewController, Configurable 
         configureHierachy()
         configureLayout()
         configureCollectionView()
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -89,7 +88,7 @@ extension ProfileImageSettingViewController: UICollectionViewDelegate, UICollect
         
         cell.profileImageView.image = UIImage(named: "profile_" + "\(indexPath.item)")
         if profileCircleView.profileImageView.innerImageView.image == cell.profileImageView.image {
-//            cell.profileImageView.isHighlighted = true
+            cell.profileImageView.isHighlighted = true
 //            cell.profileImageView.layer.borderColor = UIColor(resource: .main).cgColor
 //            cell.profileImageView.layer.borderWidth = 3
 //            cell.profileImageView.alpha = 1

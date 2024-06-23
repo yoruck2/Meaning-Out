@@ -14,7 +14,6 @@ class ProfileSettingCircleView: UIImageView {
     
     override var isHighlighted: Bool {
         didSet {
-            
             if isHighlighted {
                 layer.borderColor = UIColor(resource: .main).cgColor
                 layer.borderWidth = 3

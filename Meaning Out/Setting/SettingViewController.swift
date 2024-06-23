@@ -37,6 +37,7 @@ class SettingViewController: MeaningOutViewController, Configurable {
     override func viewWillAppear(_ animated: Bool) {
         profileAreaView.profileCircleView.image = UserDefaultsHelper.standard.profileImage
         profileAreaView.nicknameLabel.text = UserDefaultsHelper.standard.nickname
+        settingMenuTableView.reloadData()
     }
     
     func configureUI() {
@@ -126,14 +127,19 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
                                                  for: indexPath) as! SettingMenuTableViewCell
         if indexPath.section == 0 {
             cell.cartListCountLabel.isHidden = false
+        } else {
+            cell.cartListCountLabel.isHidden = true
         }
+        
         cell.menuLabel.text = SettingMenu.allCases[indexPath.section].rawValue
+        let cartCount = UserDefaultsHelper.standard.cartList.count
+        cell.makeCartListCountLabel(cartCount: cartCount)
         return cell
     }
 }
 
 extension SettingViewController: ProfileImageSettingDelegate {
     func didSelectProfileImage(_ image: UIImage) {
-        profileCircleView.profileImageView.innerImageView.image = image
+        profileAreaView.profileCircleView.image = image
     }
 }

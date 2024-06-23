@@ -32,6 +32,16 @@ class ProfileSettingViewController: MeaningOutViewController, Configurable {
         $0.addGestureRecognizer(tapImageViewRecognizer)
     }
     
+    @objc
+    func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        
+        let nextVC = ProfileImageSettingViewController()
+        
+        nextVC.profileCircleView.profileImageView.innerImageView.image = self.profileCircleView.profileImageView.innerImageView.image
+        nextVC.delegate = self
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
     lazy var nicknameTextField = UITextField().then {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         $0.leftView = paddingView
@@ -133,17 +143,6 @@ class ProfileSettingViewController: MeaningOutViewController, Configurable {
         sceneDelegate?.window?.rootViewController = tabBar
         sceneDelegate?.window?.makeKeyAndVisible()
     }
-    
-    @objc
-    func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        
-        let nextVC = ProfileImageSettingViewController()
-        
-        nextVC.profileCircleView.profileImageView.innerImageView.image = self.profileCircleView.profileImageView.innerImageView.image
-        nextVC.delegate = self
-        navigationController?.pushViewController(nextVC, animated: true)
-    }
-    
     
     @objc
     func textFieldDidChange(_ textField: UITextField) {
