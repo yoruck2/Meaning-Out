@@ -138,7 +138,6 @@
 		840A44642C1B2CA900094BDA /* Meaning Out */ = {
 			isa = PBXGroup;
 			children = (
-				840A44932C1C0BA200094BDA /* Constants.swift */,
 				840A44C92C1C51B900094BDA /* Networking */,
 				840A449C2C1C1BD500094BDA /* Protocols */,
 				840A44D12C1C735000094BDA /* Extension */,
@@ -259,6 +258,7 @@
 		840A450A2C1FBDF100094BDA /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				840A44932C1C0BA200094BDA /* Constants.swift */,
 				840A449A2C1C16C500094BDA /* AlfaSlabOne-Regular.ttf */,
 			);
 			path = Font;
