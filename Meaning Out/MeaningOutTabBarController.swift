@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MeaningOutTabBarController: UITabBarController {
+final class MeaningOutTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

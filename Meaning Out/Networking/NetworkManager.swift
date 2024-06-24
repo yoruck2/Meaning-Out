@@ -9,10 +9,12 @@ import Foundation
 
 import Alamofire
 
-class NetworkManager {
+final class NetworkManager {
     
+    static let shared = NetworkManager()
+    private init() {}
     
-    static func requestSearchResult(query: String, sort: SortPriority, page: Int, completion: @escaping (ShoppingDTO) -> Void) {
+    func requestSearchResult(query: String, sort: SortPriority, page: Int, completion: @escaping (ShoppingDTO) -> Void) {
         let baseURL = APIURL.shoppingURL
         let parameters: Parameters = [
             "query": query,
