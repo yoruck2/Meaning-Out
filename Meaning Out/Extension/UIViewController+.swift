@@ -30,18 +30,13 @@ extension UIViewController {
         view.endEditing(true)
     }
     
-    func showAlert(alerType: AlertType, completion: @escaping (UIAlertAction) -> Void) {
-        let alert = UIAlertController(title: alerType.rawValue,
-                                      message: alerType.message,
+    func showAlert(alertType: AlertType, completion: @escaping (UIAlertAction) -> Void) {
+        let alert = UIAlertController(title: alertType.rawValue,
+                                      message: alertType.message,
                                       preferredStyle: .alert)
-        let ok = UIAlertAction(title: "확인",
-                               style: .destructive,
-                               handler: completion)
-        let cancel = UIAlertAction(title: "취소",
-                                   style: .cancel)
-        alert.addAction(ok)
-        alert.addAction(cancel)
         
+        alert.addAction("확인", .destructive, handler: completion)
+        alert.addAction("취소", .cancel)
         self.present(alert, animated: true)
     }
 }
