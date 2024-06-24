@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class TableViewHeader: UIView, Configurable {
+final class TableViewHeader: UIView, Configurable {
     
     let headerLabel = UILabel().then {
         $0.text = "최근 검색"

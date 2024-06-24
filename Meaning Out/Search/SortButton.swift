@@ -30,7 +30,7 @@ enum SortPriority: String, CaseIterable {
     }
 }
 
-class SortButton: UIButton {
+final class SortButton: UIButton {
     var sortingMethod: SortPriority
     
     override var isSelected: Bool {
@@ -50,7 +50,7 @@ class SortButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureUI() {
+    private func configureUI() {
         setTitle(sortingMethod.rawValue, for: .normal)
         setTitleColor(.darkerGray, for: .normal)
         setTitleColor(.white, for: .selected)
@@ -65,7 +65,7 @@ class SortButton: UIButton {
     }
     
     @objc
-    func sortButtonTapped() {
+    private func sortButtonTapped() {
         self.isSelected.toggle()
     }
 }

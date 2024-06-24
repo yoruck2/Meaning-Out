@@ -15,7 +15,7 @@ enum Key: String {
     case profileImage
 }
 
-class UserDefaultsHelper {
+final class UserDefaultsHelper {
     static let standard = UserDefaultsHelper()
     private init() {}
     

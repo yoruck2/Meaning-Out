@@ -14,7 +14,7 @@ import Then
 
 class SearchResultViewController: MeaningOutViewController, Configurable {
     
-    
+    let network = NetworkManager.shared
     var searchingProduct = ""
     var searchResultData: ShoppingDTO? {
         didSet {
@@ -51,7 +51,7 @@ class SearchResultViewController: MeaningOutViewController, Configurable {
             button.isSelected = (button == sender)
             selectedSortMode = sender.sortingMethod
             
-            Network.requestSearchResult(query: searchingProduct, sort: sender.sortingMethod, page: page) { [self] data in
+            network.requestSearchResult(query: searchingProduct, sort: sender.sortingMethod, page: page) { [self] data in
                 searchResultData = data
                 searchResultCollectionView.scrollToItem(at: IndexPath(row: 0, section: 0),
                                                         at: .top,
@@ -94,7 +94,7 @@ class SearchResultViewController: MeaningOutViewController, Configurable {
     }
     
     func loadData() {
-        Network.requestSearchResult(query: searchingProduct, sort: .accuracy, page: page) { [self] data in
+        network.requestSearchResult(query: searchingProduct, sort: .accuracy, page: page) { [self] data in
             searchResultData = data
             searchResultCountLabel.text = "\(searchResultData?.total.formatted() ?? "0")개의 검색 결과"
             searchResultCollectionView.reloadData()
@@ -170,7 +170,7 @@ extension SearchResultViewController: UICollectionViewDataSourcePrefetching {
             }
             if list.count - 2 <= indexPaths.item {
                 page += 1
-                Network.requestSearchResult(query: searchingProduct, sort: selectedSortMode, page: page) { data in
+                network.requestSearchResult(query: searchingProduct, sort: selectedSortMode, page: page) { data in
                     self.searchResultData?.items.append(contentsOf: data.items)
                     self.searchResultCollectionView.reloadData()
                 }

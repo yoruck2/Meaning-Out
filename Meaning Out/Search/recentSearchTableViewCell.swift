@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class recentSearchTableViewCell: UITableViewCell, Configurable {
+final class recentSearchTableViewCell: UITableViewCell, Configurable {
     
     weak var delegate: recentSearchDelegate?
     var index: Int = 0

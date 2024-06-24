@@ -44,7 +44,7 @@ class CartButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureUI() {
+    private func configureUI() {
         
         backgroundColor = .white
         layer.cornerRadius = 5
@@ -58,7 +58,7 @@ class CartButton: UIButton {
     }
     
     @objc
-    func cartButtonTapped() {
+    private func cartButtonTapped() {
         self.isSelected.toggle()
     }
 }

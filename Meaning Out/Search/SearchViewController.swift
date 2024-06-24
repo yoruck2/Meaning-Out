@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class SearchViewController: MeaningOutViewController, Configurable {
+final class SearchViewController: MeaningOutViewController, Configurable {
     
     var nonDuplicatedList = [String]()
     var recentSearchList = UserDefaultsHelper.standard.recentSearchList {

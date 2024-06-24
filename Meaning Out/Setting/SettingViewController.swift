@@ -96,7 +96,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 4 {
-            showAlert(alerType: .withdrawal) {_ in
+            showAlert(alertType: .withdrawal) {_ in
                 self.removeUserData()
                 
                 let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene

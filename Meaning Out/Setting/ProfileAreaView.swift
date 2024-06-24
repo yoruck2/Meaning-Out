@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class ProfileAreaView: UIView, Configurable {
+final class ProfileAreaView: UIView, Configurable {
     
     lazy var profileCircleView = ProfileSettingCircleView(frame: .zero).then {
         $0.image = UserDefaultsHelper.standard.profileImage

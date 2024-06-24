@@ -9,7 +9,7 @@ import UIKit
 
 import Kingfisher
 
-class SearchResultCollectionViewCell: UICollectionViewCell, Configurable {
+final class SearchResultCollectionViewCell: UICollectionViewCell, Configurable {
 
     var itemData: Item? {
             didSet {

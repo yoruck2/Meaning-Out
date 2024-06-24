@@ -8,13 +8,13 @@
 import UIKit
 import WebKit
 
-class ProductDetailViewController: MeaningOutViewController {
+final class ProductDetailViewController: MeaningOutViewController {
     
-    var produtName: String
-    var productID: String
-    var productDetailUrl: String
+    private var produtName: String
+    private var productID: String
+    private var productDetailUrl: String
     
-    let webView: WKWebView = WKWebView()
+    private let webView: WKWebView = WKWebView()
     
     init(_ produtName: String, _ productDetailUrl: String, id productID: String) {
         self.produtName = produtName
@@ -37,18 +37,18 @@ class ProductDetailViewController: MeaningOutViewController {
     override func configureNavigationBar() {
         let barButton = CartButton(cellProductID: productID).toBarButtonItem()
         print(UserDefaultsHelper.standard.cartList[productID])
-        if let isInCart = UserDefaultsHelper.standard.cartList[productID] {
+        if UserDefaultsHelper.standard.cartList[productID] != nil {
             barButton?.isSelected.toggle()
         }
         navigationItem.rightBarButtonItem = barButton
     }
-    func configureUI() {
+    private func configureUI() {
         view.addSubview(webView)
         webView.snp.makeConstraints {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
-    func configureWebView() {
+    private func configureWebView() {
         guard let url = URL(string: productDetailUrl) else {
             return
         }
