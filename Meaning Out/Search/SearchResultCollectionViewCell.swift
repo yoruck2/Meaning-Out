@@ -17,7 +17,6 @@ class SearchResultCollectionViewCell: UICollectionViewCell, Configurable {
             }
         }
     
-//    var productID:
     let productImageView = UIImageView().then {
         $0.layer.cornerRadius = 10
         $0.clipsToBounds = true

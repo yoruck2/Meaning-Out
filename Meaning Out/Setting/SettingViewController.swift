@@ -70,21 +70,6 @@ class SettingViewController: MeaningOutViewController, Configurable {
                                       forCellReuseIdentifier: SettingMenuTableViewCell.id)
     }
     
-    func showAlert(completion: @escaping (UIAlertAction) -> Void) {
-        let alert = UIAlertController(title: "탈퇴하기",
-                                      message: "탈퇴를 하면 데이터가 모두 초기화됩니다. 탈퇴 하시겠습니까?",
-                                      preferredStyle: .alert)
-        let ok = UIAlertAction(title: "확인",
-                               style: .destructive,
-                               handler: completion)
-        let cancel = UIAlertAction(title: "취소",
-                                   style: .cancel)
-        alert.addAction(ok)
-        alert.addAction(cancel)
-        
-        self.present(alert, animated: true)
-    }
-    
     func removeUserData() {
         for key in UserDefaultsHelper.standard.userDefaults.dictionaryRepresentation().keys {
             UserDefaults.standard.removeObject(forKey: key.description)
@@ -111,7 +96,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 4 {
-            showAlert() {_ in
+            showAlert(alerType: .withdrawal) {_ in
                 self.removeUserData()
                 
                 let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene

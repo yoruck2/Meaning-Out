@@ -152,6 +152,7 @@ extension SearchResultViewController: UICollectionViewDelegate,
         return cell
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let produtName = searchResultData?.items[indexPath.item].title ?? ""
         let productDetailUrl = searchResultData?.items[indexPath.item].link.removeHTMLTags() ?? ""
