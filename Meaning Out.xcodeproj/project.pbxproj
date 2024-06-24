@@ -15,7 +15,7 @@
 		840A447A2C1B2DFE00094BDA /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 840A44792C1B2DFE00094BDA /* .gitignore */; };
 		840A447E2C1B6B7C00094BDA /* APIURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A447D2C1B6B7C00094BDA /* APIURL.swift */; };
 		840A44802C1B6CF600094BDA /* ShoppingDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A447F2C1B6CF600094BDA /* ShoppingDTO.swift */; };
-		840A44832C1B713300094BDA /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A44822C1B713300094BDA /* Network.swift */; };
+		840A44832C1B713300094BDA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A44822C1B713300094BDA /* NetworkManager.swift */; };
 		840A44862C1B719D00094BDA /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 840A44852C1B719D00094BDA /* Toast */; };
 		840A44892C1B71A900094BDA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 840A44882C1B71A900094BDA /* Kingfisher */; };
 		840A448C2C1B71B700094BDA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 840A448B2C1B71B700094BDA /* Alamofire */; };
@@ -53,6 +53,7 @@
 		8496E7982C255F78009B9238 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496E7972C255F78009B9238 /* String+.swift */; };
 		8496E79C2C2679BE009B9238 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496E79B2C2679BE009B9238 /* ProductDetailViewController.swift */; };
 		8496E79E2C26A2B3009B9238 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496E79D2C26A2B3009B9238 /* UIButton+.swift */; };
+		84E069032C29FA7E008DE620 /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E069022C29FA7E008DE620 /* UIAlertController+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,7 +68,7 @@
 		840A447B2C1B603400094BDA /* Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Configuration.xcconfig; sourceTree = "<group>"; };
 		840A447D2C1B6B7C00094BDA /* APIURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIURL.swift; sourceTree = "<group>"; };
 		840A447F2C1B6CF600094BDA /* ShoppingDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingDTO.swift; sourceTree = "<group>"; };
-		840A44822C1B713300094BDA /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		840A44822C1B713300094BDA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		840A44932C1C0BA200094BDA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		840A44952C1C111600094BDA /* LargeCapsuleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCapsuleButton.swift; sourceTree = "<group>"; };
 		840A449A2C1C16C500094BDA /* AlfaSlabOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlfaSlabOne-Regular.ttf"; sourceTree = "<group>"; };
@@ -100,6 +101,7 @@
 		8496E7972C255F78009B9238 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		8496E79B2C2679BE009B9238 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		8496E79D2C26A2B3009B9238 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		84E069022C29FA7E008DE620 /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,7 +200,7 @@
 		840A44C92C1C51B900094BDA /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				840A44822C1B713300094BDA /* Network.swift */,
+				840A44822C1B713300094BDA /* NetworkManager.swift */,
 				840A447D2C1B6B7C00094BDA /* APIURL.swift */,
 				840A447F2C1B6CF600094BDA /* ShoppingDTO.swift */,
 			);
@@ -225,6 +227,7 @@
 			children = (
 				840A44CF2C1C734D00094BDA /* TextField+.swift */,
 				840A44D42C1DC13800094BDA /* UIViewController+.swift */,
+				84E069022C29FA7E008DE620 /* UIAlertController+.swift */,
 				840A44D72C1DD5ED00094BDA /* UIView+.swift */,
 				840A451C2C2091B900094BDA /* Date+.swift */,
 				8496E7972C255F78009B9238 /* String+.swift */,
@@ -365,11 +368,12 @@
 				840A45492C2148D100094BDA /* SearchResultCollectionViewCell.swift in Sources */,
 				8496E7982C255F78009B9238 /* String+.swift in Sources */,
 				840A446A2C1B2CA900094BDA /* WelcomeViewController.swift in Sources */,
-				840A44832C1B713300094BDA /* Network.swift in Sources */,
+				840A44832C1B713300094BDA /* NetworkManager.swift in Sources */,
 				840A44662C1B2CA900094BDA /* AppDelegate.swift in Sources */,
 				840A45192C20719800094BDA /* SearchResultViewController.swift in Sources */,
 				840A45172C202C9A00094BDA /* TableViewHeader.swift in Sources */,
 				840A44942C1C0BA200094BDA /* Constants.swift in Sources */,
+				84E069032C29FA7E008DE620 /* UIAlertController+.swift in Sources */,
 				840A44802C1B6CF600094BDA /* ShoppingDTO.swift in Sources */,
 				840A44C82C1C4CBB00094BDA /* MeaningOutViewController.swift in Sources */,
 				840A454B2C216A5E00094BDA /* CartButton.swift in Sources */,

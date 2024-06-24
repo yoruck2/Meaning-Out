@@ -9,7 +9,8 @@ import Foundation
 
 import Alamofire
 
-struct Network {
+class NetworkManager {
+    
     
     static func requestSearchResult(query: String, sort: SortPriority, page: Int, completion: @escaping (ShoppingDTO) -> Void) {
         let baseURL = APIURL.shoppingURL
