@@ -10,8 +10,6 @@ import UIKit
 import SnapKit
 import Then
 
-
-
 class SearchResultViewController: MeaningOutViewController, Configurable {
     
     let network = NetworkManager.shared
@@ -51,9 +49,16 @@ class SearchResultViewController: MeaningOutViewController, Configurable {
             button.isSelected = (button == sender)
             selectedSortMode = sender.sortingMethod
             
-            network.requestSearchResult(query: searchingProduct, sort: sender.sortingMethod, page: page) { [self] data in
+            network.requestSearchResult(api: .search(query: searchingProduct,
+                                                     sort: sender.sortingMethod,
+                                                     page: page)) { [self] data, error in
+                guard error == nil else {
+                    showConfirmAlert(alertType: .networkError(error: error?.rawValue ?? ""))
+                    return
+                }
                 searchResultData = data
-                searchResultCollectionView.scrollToItem(at: IndexPath(row: 0, section: 0),
+                searchResultCollectionView.scrollToItem(at: IndexPath(row: 0, 
+                                                                      section: 0),
                                                         at: .top,
                                                         animated: true)
             }
@@ -94,7 +99,13 @@ class SearchResultViewController: MeaningOutViewController, Configurable {
     }
     
     func loadData() {
-        network.requestSearchResult(query: searchingProduct, sort: .accuracy, page: page) { [self] data in
+        network.requestSearchResult(api: .search(query: searchingProduct,
+                                                 sort: .accuracy,
+                                                 page: page)) { [self] data, error  in
+            guard error == nil else {
+                showConfirmAlert(alertType: .networkError(error: error?.rawValue ?? ""))
+                return
+            }
             searchResultData = data
             searchResultCountLabel.text = "\(searchResultData?.total.formatted() ?? "0")개의 검색 결과"
             searchResultCollectionView.reloadData()
@@ -170,9 +181,15 @@ extension SearchResultViewController: UICollectionViewDataSourcePrefetching {
             }
             if list.count - 2 <= indexPaths.item {
                 page += 1
-                network.requestSearchResult(query: searchingProduct, sort: selectedSortMode, page: page) { data in
-                    self.searchResultData?.items.append(contentsOf: data.items)
-                    self.searchResultCollectionView.reloadData()
+                network.requestSearchResult(api: .search(query: searchingProduct,
+                                                         sort: selectedSortMode,
+                                                         page: page)) { [self] data, error in
+                    guard error == nil else {
+                        showConfirmAlert(alertType: .networkError(error: error?.rawValue ?? ""))
+                        return
+                    }
+                    searchResultData?.items.append(contentsOf: data?.items ?? [])
+                    searchResultCollectionView.reloadData()
                 }
             }
         }
