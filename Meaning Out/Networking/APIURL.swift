@@ -2,32 +2,36 @@
 //  APIURL.swift
 //  Meaning Out
 //
-//  Created by dopamint on 6/14/24.
+//  Created by dopamint on 7/1/24.
 //
 
 import Foundation
+
+enum APIURL {
+    case search(query: String, sort: SortPriority, page: Int)
     
-struct APIURL {
-    static let shoppingURL = "https://openapi.naver.com/v1/search/shop.json"
-}
-
-enum APIHeaders {
-    case clientId
-    case clientSecret
-
-    var header: String {
-        let keyName: String
-        
+    var scheme: String {
+        return "https"
+    }
+     var host: String {
+        return "openapi.naver.com"
+    }
+     var path: String {
+        return "/v1/search/shop.json"
+    }
+    
+    var header: [String : String]  {
+        return ["X-Naver-Client-Id": APIAuth.clientId.header,
+                "X-Naver-Client-Secret": APIAuth.clientSecret.header,]
+    }
+    
+    var parameter: [URLQueryItem]  {
         switch self {
-        case .clientId:
-            keyName = "X_Naver_Client_Id"
-        case .clientSecret:
-            keyName = "X_Naver_Client_Secret"
+        case .search(let query, let sort, let page):
+            return [URLQueryItem(name: "query", value: query),
+                    URLQueryItem(name: "display", value: "30"),
+                    URLQueryItem(name: "sort", value: sort.parameterValue),
+                    URLQueryItem(name: "start", value: String(page))]
         }
-        guard let key = Bundle.main.object(forInfoDictionaryKey: keyName) as? String else {
-            assertionFailure("헤더를 찾을 수 없음")
-            return ""
-        }
-        return key
     }
 }
