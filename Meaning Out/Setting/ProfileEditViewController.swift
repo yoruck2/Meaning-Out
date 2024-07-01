@@ -32,3 +32,16 @@ class ProfileEditViewController: ProfileSettingViewController {
         }
     }
 }
+//@objc
+//func saveButtonTapped() {
+//    do {
+//        if try NicknameErrorGuide.validNickname == validateNickName(nicknameTextField.text ?? "") {
+//            UserDefaultsHelper.standard.nickname = nicknameTextField.text ?? ""
+//            UserDefaultsHelper.standard.profileImage = profileCircleView.profileImageView.innerImageView.image ?? UIImage()
+//            self.navigationController?.popViewController(animated: true)
+//        }
+//    } catch {
+//            nicknameGuideLabel.text = "저장 안됨!!!"
+//    }
+//}
+//}

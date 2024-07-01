@@ -13,7 +13,7 @@
 		840A446F2C1B2CAA00094BDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 840A446E2C1B2CAA00094BDA /* Assets.xcassets */; };
 		840A44722C1B2CAA00094BDA /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 840A44712C1B2CAA00094BDA /* Base */; };
 		840A447A2C1B2DFE00094BDA /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 840A44792C1B2DFE00094BDA /* .gitignore */; };
-		840A447E2C1B6B7C00094BDA /* APIURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A447D2C1B6B7C00094BDA /* APIURL.swift */; };
+		840A447E2C1B6B7C00094BDA /* APIAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A447D2C1B6B7C00094BDA /* APIAuth.swift */; };
 		840A44802C1B6CF600094BDA /* ShoppingDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A447F2C1B6CF600094BDA /* ShoppingDTO.swift */; };
 		840A44832C1B713300094BDA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A44822C1B713300094BDA /* NetworkManager.swift */; };
 		840A44862C1B719D00094BDA /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 840A44852C1B719D00094BDA /* Toast */; };
@@ -53,6 +53,7 @@
 		8496E7982C255F78009B9238 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496E7972C255F78009B9238 /* String+.swift */; };
 		8496E79C2C2679BE009B9238 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496E79B2C2679BE009B9238 /* ProductDetailViewController.swift */; };
 		8496E79E2C26A2B3009B9238 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496E79D2C26A2B3009B9238 /* UIButton+.swift */; };
+		84D2BC822C32E1B200DCA459 /* APIURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D2BC812C32E1B200DCA459 /* APIURL.swift */; };
 		84E069032C29FA7E008DE620 /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E069022C29FA7E008DE620 /* UIAlertController+.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +67,7 @@
 		840A44732C1B2CAA00094BDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		840A44792C1B2DFE00094BDA /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		840A447B2C1B603400094BDA /* Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Configuration.xcconfig; sourceTree = "<group>"; };
-		840A447D2C1B6B7C00094BDA /* APIURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIURL.swift; sourceTree = "<group>"; };
+		840A447D2C1B6B7C00094BDA /* APIAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAuth.swift; sourceTree = "<group>"; };
 		840A447F2C1B6CF600094BDA /* ShoppingDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingDTO.swift; sourceTree = "<group>"; };
 		840A44822C1B713300094BDA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		840A44932C1C0BA200094BDA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -101,6 +102,7 @@
 		8496E7972C255F78009B9238 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		8496E79B2C2679BE009B9238 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		8496E79D2C26A2B3009B9238 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		84D2BC812C32E1B200DCA459 /* APIURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIURL.swift; sourceTree = "<group>"; };
 		84E069022C29FA7E008DE620 /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,11 +142,11 @@
 		840A44642C1B2CA900094BDA /* Meaning Out */ = {
 			isa = PBXGroup;
 			children = (
-				840A44C92C1C51B900094BDA /* Networking */,
-				840A449C2C1C1BD500094BDA /* Protocols */,
-				840A44D12C1C735000094BDA /* Extension */,
 				840A44812C1B6E5000094BDA /* App */,
 				840A450A2C1FBDF100094BDA /* Font */,
+				840A449C2C1C1BD500094BDA /* Protocols */,
+				840A44D12C1C735000094BDA /* Extension */,
+				840A44C92C1C51B900094BDA /* Networking */,
 				840A44C72C1C4CBB00094BDA /* MeaningOutViewController.swift */,
 				840A44DD2C1ED62400094BDA /* MeaningOutTabBarController.swift */,
 				840A44E62C1F8D3700094BDA /* UserDefaultsHelper.swift */,
@@ -201,8 +203,9 @@
 			isa = PBXGroup;
 			children = (
 				840A44822C1B713300094BDA /* NetworkManager.swift */,
-				840A447D2C1B6B7C00094BDA /* APIURL.swift */,
+				840A447D2C1B6B7C00094BDA /* APIAuth.swift */,
 				840A447F2C1B6CF600094BDA /* ShoppingDTO.swift */,
+				84D2BC812C32E1B200DCA459 /* APIURL.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -353,7 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				840A447E2C1B6B7C00094BDA /* APIURL.swift in Sources */,
+				840A447E2C1B6B7C00094BDA /* APIAuth.swift in Sources */,
 				8496E79E2C26A2B3009B9238 /* UIButton+.swift in Sources */,
 				840A451B2C2082BF00094BDA /* ProfileAreaView.swift in Sources */,
 				840A44E12C1ED6E300094BDA /* SettingViewController.swift in Sources */,
@@ -381,6 +384,7 @@
 				840A44C62C1C457900094BDA /* SearchViewController.swift in Sources */,
 				840A449E2C1C1C7400094BDA /* Configurable.swift in Sources */,
 				840A44A02C1C298400094BDA /* ProfileSettingViewController.swift in Sources */,
+				84D2BC822C32E1B200DCA459 /* APIURL.swift in Sources */,
 				840A44682C1B2CA900094BDA /* SceneDelegate.swift in Sources */,
 				840A44CE2C1C71E900094BDA /* ProfileCircleView.swift in Sources */,
 				840A45152C1FE19800094BDA /* recentSearchTableViewCell.swift in Sources */,
