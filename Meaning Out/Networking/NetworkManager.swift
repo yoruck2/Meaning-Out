@@ -20,7 +20,7 @@ final class NetworkManager {
     private init() {}
     
     func requestSearchResult(api: APIURL,
-                             completion: @escaping (ShoppingDTO?, NetworkError?) -> Void) {
+                             completion: @escaping (Shopping?, NetworkError?) -> Void) {
         
         // MARK: URLComponents -
         var component = URLComponents()
@@ -60,7 +60,7 @@ final class NetworkManager {
                 }
                 
                 do {
-                    let result = try JSONDecoder().decode(ShoppingDTO.self, from: data)
+                    let result = try JSONDecoder().decode(Shopping.self, from: data)
                     completion(result, nil)
 //                    print(result)
                 } catch {

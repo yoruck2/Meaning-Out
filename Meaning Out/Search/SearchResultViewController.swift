@@ -14,7 +14,7 @@ class SearchResultViewController: MeaningOutViewController, Configurable {
     
     let network = NetworkManager.shared
     var searchingProduct = ""
-    var searchResultData: ShoppingDTO? {
+    var searchResultData: Shopping? {
         didSet {
             searchResultCollectionView.reloadData()
         }

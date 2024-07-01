@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ShoppingDTO: Codable {
+struct Shopping: Codable {
     let lastBuildDate: String?
     let total, start, display: Int
     var items: [Item]

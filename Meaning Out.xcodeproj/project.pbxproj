@@ -14,7 +14,7 @@
 		840A44722C1B2CAA00094BDA /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 840A44712C1B2CAA00094BDA /* Base */; };
 		840A447A2C1B2DFE00094BDA /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 840A44792C1B2DFE00094BDA /* .gitignore */; };
 		840A447E2C1B6B7C00094BDA /* APIAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A447D2C1B6B7C00094BDA /* APIAuth.swift */; };
-		840A44802C1B6CF600094BDA /* ShoppingDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A447F2C1B6CF600094BDA /* ShoppingDTO.swift */; };
+		840A44802C1B6CF600094BDA /* Shopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A447F2C1B6CF600094BDA /* Shopping.swift */; };
 		840A44832C1B713300094BDA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A44822C1B713300094BDA /* NetworkManager.swift */; };
 		840A44862C1B719D00094BDA /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 840A44852C1B719D00094BDA /* Toast */; };
 		840A44892C1B71A900094BDA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 840A44882C1B71A900094BDA /* Kingfisher */; };
@@ -68,7 +68,7 @@
 		840A44792C1B2DFE00094BDA /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		840A447B2C1B603400094BDA /* Configuration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Configuration.xcconfig; sourceTree = "<group>"; };
 		840A447D2C1B6B7C00094BDA /* APIAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAuth.swift; sourceTree = "<group>"; };
-		840A447F2C1B6CF600094BDA /* ShoppingDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingDTO.swift; sourceTree = "<group>"; };
+		840A447F2C1B6CF600094BDA /* Shopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopping.swift; sourceTree = "<group>"; };
 		840A44822C1B713300094BDA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		840A44932C1C0BA200094BDA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		840A44952C1C111600094BDA /* LargeCapsuleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCapsuleButton.swift; sourceTree = "<group>"; };
@@ -202,9 +202,9 @@
 		840A44C92C1C51B900094BDA /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				840A447F2C1B6CF600094BDA /* Shopping.swift */,
 				840A44822C1B713300094BDA /* NetworkManager.swift */,
 				840A447D2C1B6B7C00094BDA /* APIAuth.swift */,
-				840A447F2C1B6CF600094BDA /* ShoppingDTO.swift */,
 				84D2BC812C32E1B200DCA459 /* APIURL.swift */,
 			);
 			path = Networking;
@@ -377,7 +377,7 @@
 				840A45172C202C9A00094BDA /* TableViewHeader.swift in Sources */,
 				840A44942C1C0BA200094BDA /* Constants.swift in Sources */,
 				84E069032C29FA7E008DE620 /* UIAlertController+.swift in Sources */,
-				840A44802C1B6CF600094BDA /* ShoppingDTO.swift in Sources */,
+				840A44802C1B6CF600094BDA /* Shopping.swift in Sources */,
 				840A44C82C1C4CBB00094BDA /* MeaningOutViewController.swift in Sources */,
 				840A454B2C216A5E00094BDA /* CartButton.swift in Sources */,
 				840A44DE2C1ED62400094BDA /* MeaningOutTabBarController.swift in Sources */,

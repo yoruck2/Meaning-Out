@@ -161,6 +161,7 @@ class ProfileSettingViewController: MeaningOutViewController, Configurable {
         }
     }
     
+    // TODO: 에러 핸들링 적용해볼려 했는데 여러 케이스별로 나뉘는거라.. 안되는건가??
     func validateNickName(_ text: String) -> NicknameGuide {
         
         let filteredText = text.components(separatedBy: ["#","$","@","%"]).joined()
