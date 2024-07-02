@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SendDataDelegate: AnyObject {
-    func transfer(data: Any)
+    func transfer()
 }
 
 protocol ProfileImageSettingDelegate: AnyObject {

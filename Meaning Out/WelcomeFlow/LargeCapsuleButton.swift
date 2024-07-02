@@ -11,22 +11,11 @@ import Then
 enum LargeCapsuleButtonStyle: String {
     case start = "시작하기"
     case complete = "완료"
-    
-    func setNextVC() -> UIViewController {
-        switch self {
-        case .start:
-            return ProfileSettingViewController()
-        case .complete:
-            return ProfileImageSettingViewController()
-        }
-    }
 }
 
 class LargeCapsuleButton: UIButton {
     
     weak var delegate: SendDataDelegate?
-    
-    var nextView = UIViewController()
     
     override var isHighlighted: Bool {
         get {
@@ -49,8 +38,6 @@ class LargeCapsuleButton: UIButton {
     
     init(style: LargeCapsuleButtonStyle) {
         super.init(frame: .zero)
-        
-        nextView = style.setNextVC()
         setTitle(style.rawValue, for: .normal)
         
         titleLabel?.font =  Font.bold16
@@ -65,7 +52,7 @@ class LargeCapsuleButton: UIButton {
     
     @objc
     func buttonTapped() {
-        delegate?.transfer(data: nextView)
+        delegate?.transfer()
     }
 }
 

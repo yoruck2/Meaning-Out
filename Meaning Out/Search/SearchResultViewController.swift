@@ -23,8 +23,20 @@ class SearchResultViewController: MeaningOutViewController, Configurable {
     var page = 1
     var selectedSortMode = SortPriority(rawValue: SortPriority.accuracy.rawValue)
     
+    var total: Double = 0
+    var buffer: Data? {
+        didSet {
+            let result = Double(buffer?.count ?? 0) / total
+            progressLabel.text = "\(round(result * 100)) / 100"
+        }
+    }
+    
     lazy var searchResultCountLabel = UILabel().then {
         $0.font = Font.bold16
+        $0.textColor = .main
+    }    
+    lazy var progressLabel = UILabel().then {
+        $0.font = Font.medium15
         $0.textColor = .main
     }
     var accuracyButton = SortButton(.accuracy)
@@ -119,6 +131,7 @@ class SearchResultViewController: MeaningOutViewController, Configurable {
     
     func configureHierachy() {
         view.addSubview(searchResultCountLabel)
+        view.addSubview(progressLabel)
         view.addSubview(sortButtonStackView)
         view.addSubview(searchResultCollectionView)
     }
@@ -127,6 +140,10 @@ class SearchResultViewController: MeaningOutViewController, Configurable {
         searchResultCountLabel.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(10)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(10)
+        }
+        progressLabel.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(10)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(10)
         }
         
         sortButtonStackView.snp.makeConstraints {
@@ -201,3 +218,38 @@ extension SearchResultViewController: UICollectionViewDataSourcePrefetching {
 }
 
 
+extension SearchResultViewController: URLSessionDataDelegate {
+    
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse) async -> URLSession.ResponseDisposition {
+        
+        if let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) {
+            let contentLength = response.value(forHTTPHeaderField: "Content-Length")!
+            total = Double(contentLength)!
+            
+            progressLabel.text = "\(total)% 완료"
+            
+            return .allow
+        } else {
+            return .cancel
+        }
+    }
+
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+
+        buffer?.append(data)
+    }
+    
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: (any Error)?) {
+        
+        if let error {
+            progressLabel.text = "통신에 실패했습니다."
+        } else {
+            print("성공")
+            
+            guard let buffer else {
+                print("buffer nil")
+                return
+            }
+        }
+    }
+}

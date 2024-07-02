@@ -37,7 +37,6 @@ final class NetworkManager {
         
         // MARK: URLSession -
         defaultSession.dataTask(with: request) { data, response, error in
-            
             DispatchQueue.main.async {
                 guard error == nil else {
                     completion(nil, .failedRequest)
