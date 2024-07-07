@@ -17,21 +17,7 @@ class ProfileImageSettingViewController: MeaningOutViewController, Configurable 
     var profileCircleView = ProfileCircleView()
     weak var delegate: ProfileImageSettingDelegate?
     
-    lazy var profileImageSettingCollectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
-    
-    func collectionViewLayout() -> UICollectionViewLayout {
-        let layout = UICollectionViewFlowLayout()
-        let sectionSpacing: CGFloat = 5
-        let cellSpacing: CGFloat = 10
-        let lineSpacing: CGFloat = 15
-        let width = UIScreen.main.bounds.width - (sectionSpacing * 2) - (cellSpacing * 3)
-        layout.itemSize = CGSize(width: width / 4.8, height: width / 4.8)
-        layout.scrollDirection = .vertical
-        layout.minimumInteritemSpacing = cellSpacing
-        layout.minimumLineSpacing = lineSpacing
-        layout.sectionInset = UIEdgeInsets(top: sectionSpacing, left: sectionSpacing, bottom: sectionSpacing, right: sectionSpacing)
-        return layout
-    }
+    lazy var profileImageSettingCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionView.collectionViewLayout())
     
     override func viewDidLoad() {
         super.viewDidLoad()

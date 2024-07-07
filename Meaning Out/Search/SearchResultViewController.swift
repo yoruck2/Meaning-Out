@@ -24,6 +24,8 @@ class SearchResultViewController: MeaningOutViewController, Configurable {
     var selectedSortMode = SortPriority(rawValue: SortPriority.accuracy.rawValue)
     
     var total: Double = 0
+    
+    // TODO: 버퍼 -
     var buffer: Data? {
         didSet {
             let result = Double(buffer?.count ?? 0) / total
@@ -84,21 +86,9 @@ class SearchResultViewController: MeaningOutViewController, Configurable {
         $0.spacing = 8
     }
     
-    func collectionViewLayout() -> UICollectionViewLayout {
-        let layout = UICollectionViewFlowLayout()
-        let sectionSpacing: CGFloat = 10
-        let cellSpacing: CGFloat = 20
-        
-        let width = UIScreen.main.bounds.width - (sectionSpacing * 2) - cellSpacing
-        layout.itemSize = CGSize(width: width / 2, height: width / 2 * 1.7)
-        layout.scrollDirection = .vertical
-        layout.minimumInteritemSpacing = cellSpacing
-        layout.minimumLineSpacing = cellSpacing
-        layout.sectionInset = UIEdgeInsets(top: sectionSpacing, left: sectionSpacing, bottom: sectionSpacing, right: sectionSpacing)
-        return layout
-    }
+    
     lazy var searchResultCollectionView = UICollectionView(frame: .zero,
-                                                           collectionViewLayout: collectionViewLayout())
+                                                           collectionViewLayout: UICollectionView.collectionViewLayout())
     
     override func viewDidLoad() {
         super.viewDidLoad()
