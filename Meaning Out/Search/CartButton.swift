@@ -12,20 +12,25 @@ import Then
 
 class CartButton: UIButton {
     
+    var handler: (() -> Void)?
+    
     var cellProductID: String
+    let repository = WishListTableRepository.shared
     
     override var isSelected: Bool {
         didSet {
             if self.isSelected == true {
                 print(UserDefaultsHelper.standard.cartList)
                 print(cellProductID)
+                
+                
                 var tempList = UserDefaultsHelper.standard.cartList
                 tempList.updateValue(true, forKey: cellProductID)
                 UserDefaultsHelper.standard.cartList = tempList
-
             } else {
                 print(UserDefaultsHelper.standard.cartList)
                 print(cellProductID)
+                
                 var tempList = UserDefaultsHelper.standard.cartList
                 tempList.removeValue(forKey: cellProductID)
                 UserDefaultsHelper.standard.cartList = tempList
@@ -60,5 +65,6 @@ class CartButton: UIButton {
     @objc
     private func cartButtonTapped() {
         self.isSelected.toggle()
+        
     }
 }

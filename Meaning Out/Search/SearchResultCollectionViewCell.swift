@@ -10,12 +10,14 @@ import UIKit
 import Kingfisher
 
 final class SearchResultCollectionViewCell: UICollectionViewCell, Configurable {
-
+    
+    let repository = WishListTableRepository.shared
+    
     var itemData: Item? {
-            didSet {
-                setUpData()
-            }
+        didSet {
+            setUpData()
         }
+    }
     
     let productImageView = UIImageView().then {
         $0.layer.cornerRadius = 10
@@ -69,6 +71,16 @@ final class SearchResultCollectionViewCell: UICollectionViewCell, Configurable {
         productNameLabel.text = itemData.title.removeHTMLTags()
         priceLabel.text = "\(itemData.lprice)원"
         cartButton.cellProductID = itemData.productId
+        
+        cartButton.handler = { [self] in
+            let data = WishlistTable(productId: itemData.productId,
+                                     title: itemData.title,
+                                     link: itemData.link,
+                                     image: itemData.image,
+                                     price: itemData.lprice,
+                                     mallName: itemData.mallName)
+            repository.createItem(data, handler: nil)
+        }
     }
     
     func configureHierachy() {
