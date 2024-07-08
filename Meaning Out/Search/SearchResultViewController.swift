@@ -172,9 +172,10 @@ extension SearchResultViewController: UICollectionViewDelegate,
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let produtName = searchResultData?.items[indexPath.item].title ?? ""
-        let productDetailUrl = searchResultData?.items[indexPath.item].link.removeHTMLTags() ?? ""
-        let vc = ProductDetailViewController(produtName, productDetailUrl, id: searchResultData?.items[indexPath.item].productId ?? "")
+        guard let data = searchResultData?.items[indexPath.item] else {
+            return
+        }
+        let vc = ProductDetailViewController(itemData: data)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

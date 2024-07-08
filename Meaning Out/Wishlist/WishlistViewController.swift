@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class WishlistViewController: UIViewController, UISearchControllerDelegate {
+class WishlistViewController: MeaningOutViewController, UISearchControllerDelegate {
     
     let repository = WishListTableRepository.shared
     
@@ -20,6 +20,7 @@ class WishlistViewController: UIViewController, UISearchControllerDelegate {
     lazy var wishlistCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionView.collectionViewLayout()).then {
         $0.delegate = self
         $0.dataSource = self
+        $0.register(SearchResultCollectionViewCell.self, forCellWithReuseIdentifier: SearchResultCollectionViewCell.id)
     }
     
     override func viewDidLoad() {
@@ -27,6 +28,22 @@ class WishlistViewController: UIViewController, UISearchControllerDelegate {
         configureHierarchy()
         configureLayout()
         configureView()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reloadCollectionView),
+                                               name: NSNotification.Name("reloadCollectinView"),
+                                               object: nil)
+    }
+    @objc func reloadCollectionView(_ notification: Notification) {
+        DispatchQueue.main.async {
+            self.wishlistCollectionView.reloadData()
+        }
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        wishlistCollectionView.reloadData()
     }
     
     func configureHierarchy() {
@@ -39,6 +56,8 @@ class WishlistViewController: UIViewController, UISearchControllerDelegate {
         }
     }
     func configureView() {
+        let nickname = UserDefaultsHelper.standard.nickname
+        navigationItem.title = "\(nickname)'s WISHLIST"
         navigationItem.searchController = productSearchBar
         navigationItem.searchController?.hidesNavigationBarDuringPresentation = true
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -54,8 +73,20 @@ extension WishlistViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultCollectionViewCell.id, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultCollectionViewCell.id, for: indexPath) as? SearchResultCollectionViewCell else {
+            return UICollectionViewCell()
+        }
         
+        let wishItem = repository.wishlistTable[indexPath.item]
+        let item = Item(title: wishItem.title,
+                        link: wishItem.link,
+                        image: wishItem.image ?? "",
+                        lprice: wishItem.price ?? "",
+                        hprice: "",
+                        mallName: wishItem.mallName ?? "",
+                        productId: wishItem.productId,
+                        productType: "")
+        cell.itemData = item
         return cell
     }
     
