@@ -15,7 +15,7 @@ final class MeaningOutTabBarController: UITabBarController {
         let wishListVC = UINavigationController(rootViewController: WishlistViewController())
         let settingVC = UINavigationController(rootViewController: SettingViewController())
 
-        setViewControllers([searchVC, settingVC], animated: true)
+        setViewControllers([searchVC, wishListVC, settingVC], animated: true)
         tabBar.tintColor = .main
         tabBar.backgroundColor = .white
         
@@ -23,8 +23,8 @@ final class MeaningOutTabBarController: UITabBarController {
             items[0].image = UIImage(systemName: "magnifyingglass")
             items[0].title = "검색"
             items[1].image = UIImage(systemName: "heart")
-            items[1].selectedImage = UIImage(systemName: "heart.fillheart")
-            items[1].title = "설정"
+            items[1].selectedImage = UIImage(systemName: "heart.fill")
+            items[1].title = "위시리스트"
             items[2].image = UIImage(systemName: "person")
             items[2].title = "설정"
         }
