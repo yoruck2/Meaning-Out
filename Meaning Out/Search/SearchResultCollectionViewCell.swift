@@ -24,7 +24,8 @@ final class SearchResultCollectionViewCell: UICollectionViewCell, Configurable {
         $0.clipsToBounds = true
     }
     
-    lazy var wishButton = WishButton(cellProductID: itemData?.productId ?? "")
+    lazy var wishButton = WishButton(cellProductID: itemData?.productId ?? "",
+                                     isWished: (UserDefaultsHelper.standard.wishList[itemData?.productId ?? ""] != nil))
     
     let sellerLabel = UILabel().then {
         $0.font = Font.medium13
@@ -54,7 +55,7 @@ final class SearchResultCollectionViewCell: UICollectionViewCell, Configurable {
     override func prepareForReuse() {
         guard let  wishData = UserDefaultsHelper.standard.wishList[itemData?.productId ?? ""]
         else {
-            isSelected = false
+            wishButton.isSelected = false
             return
         }
         isSelected = wishData as! Bool
@@ -65,22 +66,15 @@ final class SearchResultCollectionViewCell: UICollectionViewCell, Configurable {
         guard let itemData else {
             return
         }
+        wishButton.isSelected = (UserDefaultsHelper.standard.wishList[itemData.productId] != nil)
+        
         let url = URL(string: itemData.image)
         productImageView.kf.setImage(with: url)
         sellerLabel.text = itemData.mallName
         productNameLabel.text = itemData.title.removeHTMLTags()
         priceLabel.text = "\(itemData.lprice)원"
         wishButton.cellProductID = itemData.productId
-        
-        wishButton.handler = { [self] in
-            let data = WishlistTable(productId: itemData.productId,
-                                     title: itemData.title,
-                                     link: itemData.link,
-                                     image: itemData.image,
-                                     price: itemData.lprice,
-                                     mallName: itemData.mallName)
-            repository.createItem(data, handler: nil)
-        }
+        wishButton.itemData = itemData  
     }
     
     func configureHierachy() {

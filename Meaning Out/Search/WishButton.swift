@@ -12,35 +12,22 @@ import Then
 
 class WishButton: UIButton {
     
+    var itemData: Item?
     var handler: (() -> Void)?
     
     var cellProductID: String
     let repository = WishListTableRepository.shared
     
+    // TODO: 왜 didSet이 실행되는걸까??
     override var isSelected: Bool {
         didSet {
-            if self.isSelected == true {
-                print(UserDefaultsHelper.standard.wishList)
-                print(cellProductID)
-                
-                
-                var tempList = UserDefaultsHelper.standard.wishList
-                tempList.updateValue(true, forKey: cellProductID)
-                UserDefaultsHelper.standard.wishList = tempList
-            } else {
-                print(UserDefaultsHelper.standard.wishList)
-                print(cellProductID)
-                
-                var tempList = UserDefaultsHelper.standard.wishList
-                tempList.removeValue(forKey: cellProductID)
-                UserDefaultsHelper.standard.wishList = tempList
-            }
         }
     }
     
-    init(cellProductID: String) {
+    init(cellProductID: String, isWished: Bool) {
         self.cellProductID = cellProductID
         super.init(frame: .zero)
+        self.isSelected = isWished
         configureUI()
         
     }
@@ -65,6 +52,33 @@ class WishButton: UIButton {
     @objc
     private func wishButtonTapped() {
         self.isSelected.toggle()
-        
+        guard let itemData else {
+            return
+        }
+        if self.isSelected == true {
+            let data = WishlistTable(productId: cellProductID,
+                                     title: itemData.title,
+                                     link: itemData.link,
+                                     image: itemData.image,
+                                     price: itemData.lprice,
+                                     mallName: itemData.mallName)
+            repository.createItem(data, handler: nil)
+            
+            var tempList = UserDefaultsHelper.standard.wishList
+            tempList.updateValue(true, forKey: cellProductID)
+            UserDefaultsHelper.standard.wishList = tempList
+        } else {
+            if let existingItem = repository.findItem(productId: cellProductID) {
+                repository.deleteItem(data: existingItem)
+            }
+            
+            var tempList = UserDefaultsHelper.standard.wishList
+            tempList.removeValue(forKey: cellProductID)
+            UserDefaultsHelper.standard.wishList = tempList
+        }
+        handler?()
+        NotificationCenter.default.post(name: NSNotification.Name("reloadCollectinView"),
+                                        object: nil,
+                                        userInfo: nil)
     }
 }

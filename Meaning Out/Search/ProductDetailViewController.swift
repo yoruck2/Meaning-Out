@@ -10,16 +10,11 @@ import WebKit
 
 final class ProductDetailViewController: MeaningOutViewController {
     
-    private var produtName: String
-    private var productID: String
-    private var productDetailUrl: String
-    
+    private var itemData: Item
     private let webView: WKWebView = WKWebView()
     
-    init(_ produtName: String, _ productDetailUrl: String, id productID: String) {
-        self.produtName = produtName
-        self.productDetailUrl = productDetailUrl
-        self.productID = productID
+    init(itemData: Item) {
+        self.itemData = itemData
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -29,15 +24,19 @@ final class ProductDetailViewController: MeaningOutViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = produtName.removeHTMLTags()
+        navigationItem.title = itemData.title.removeHTMLTags()
         configureWebView()
         configureUI()
     }
     
+    // TODO: 구현해야함
     override func configureNavigationBar() {
-        let barButton = WishButton(cellProductID: productID).toBarButtonItem()
-        print(UserDefaultsHelper.standard.wishList[productID])
-        if UserDefaultsHelper.standard.wishList[productID] != nil {
+        let isWished = UserDefaultsHelper.standard.wishList[itemData.productId]
+        let barButton = WishButton(cellProductID: itemData.productId,
+                                   isWished: (isWished != nil)).toBarButtonItem()
+        
+        print(UserDefaultsHelper.standard.wishList[itemData.productId])
+        if UserDefaultsHelper.standard.wishList[itemData.productId] != nil {
             barButton?.isSelected.toggle()
         }
         navigationItem.rightBarButtonItem = barButton
@@ -49,7 +48,7 @@ final class ProductDetailViewController: MeaningOutViewController {
         }
     }
     private func configureWebView() {
-        guard let url = URL(string: productDetailUrl) else {
+        guard let url = URL(string: itemData.link) else {
             return
         }
         let request = URLRequest(url: url)
