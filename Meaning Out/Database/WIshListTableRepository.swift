@@ -17,7 +17,6 @@ class WishListTableRepository {
     
     let realm = try! Realm()
     lazy var wishlistTable = realm.objects(WishlistTable.self)
-    
     // MARK: CUD -
     func createItem(_ data: WishlistTable, handler: (() -> Void)?) {
         do {
@@ -36,8 +35,11 @@ class WishListTableRepository {
     //        }
     //    }
     func deleteItem(data: WishlistTable) {
-        try! realm.write {
+        try? realm.write {
             realm.delete(data)
         }
+    }
+    func findItem(productId: String) -> WishlistTable? {
+        return wishlistTable.filter("productId == %@", productId).first
     }
 }
