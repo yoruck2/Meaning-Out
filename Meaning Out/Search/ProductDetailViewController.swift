@@ -35,9 +35,9 @@ final class ProductDetailViewController: MeaningOutViewController {
     }
     
     override func configureNavigationBar() {
-        let barButton = CartButton(cellProductID: productID).toBarButtonItem()
-        print(UserDefaultsHelper.standard.cartList[productID])
-        if UserDefaultsHelper.standard.cartList[productID] != nil {
+        let barButton = WishButton(cellProductID: productID).toBarButtonItem()
+        print(UserDefaultsHelper.standard.wishList[productID])
+        if UserDefaultsHelper.standard.wishList[productID] != nil {
             barButton?.isSelected.toggle()
         }
         navigationItem.rightBarButtonItem = barButton

@@ -17,7 +17,10 @@ class WishlistViewController: UIViewController, UISearchControllerDelegate {
     let productSearchBar = UISearchController().then {
         $0.searchBar.placeholder = "브랜드, 상품 등을 입력하세요."
     }
-    let wishlistCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionView.collectionViewLayout())
+    lazy var wishlistCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionView.collectionViewLayout()).then {
+        $0.delegate = self
+        $0.dataSource = self
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +54,9 @@ extension WishlistViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultCollectionViewCell.id, for: indexPath)
         
+        return cell
     }
     
     

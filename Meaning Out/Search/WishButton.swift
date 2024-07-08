@@ -1,5 +1,5 @@
 //
-//  CartButton.swift
+//  WishButton.swift
 //  Meaning Out
 //
 //  Created by dopamint on 6/18/24.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class CartButton: UIButton {
+class WishButton: UIButton {
     
     var handler: (() -> Void)?
     
@@ -20,20 +20,20 @@ class CartButton: UIButton {
     override var isSelected: Bool {
         didSet {
             if self.isSelected == true {
-                print(UserDefaultsHelper.standard.cartList)
+                print(UserDefaultsHelper.standard.wishList)
                 print(cellProductID)
                 
                 
-                var tempList = UserDefaultsHelper.standard.cartList
+                var tempList = UserDefaultsHelper.standard.wishList
                 tempList.updateValue(true, forKey: cellProductID)
-                UserDefaultsHelper.standard.cartList = tempList
+                UserDefaultsHelper.standard.wishList = tempList
             } else {
-                print(UserDefaultsHelper.standard.cartList)
+                print(UserDefaultsHelper.standard.wishList)
                 print(cellProductID)
                 
-                var tempList = UserDefaultsHelper.standard.cartList
+                var tempList = UserDefaultsHelper.standard.wishList
                 tempList.removeValue(forKey: cellProductID)
-                UserDefaultsHelper.standard.cartList = tempList
+                UserDefaultsHelper.standard.wishList = tempList
             }
         }
     }
@@ -59,11 +59,11 @@ class CartButton: UIButton {
         setImage(.likeUnselected, for: .normal)
         setImage(.likeSelected, for: .selected)
         
-        addTarget(self, action: #selector(cartButtonTapped), for: .touchUpInside)
+        addTarget(self, action: #selector(wishButtonTapped), for: .touchUpInside)
     }
     
     @objc
-    private func cartButtonTapped() {
+    private func wishButtonTapped() {
         self.isSelected.toggle()
         
     }

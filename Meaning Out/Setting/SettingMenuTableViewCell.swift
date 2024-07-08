@@ -16,7 +16,7 @@ class SettingMenuTableViewCell: UITableViewCell, Configurable {
         $0.font = Font.medium16
     }
     
-    var cartListCountLabel = UILabel()
+    var wishListCountLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -28,20 +28,20 @@ class SettingMenuTableViewCell: UITableViewCell, Configurable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func makeCartListCountLabel(cartCount: Int) {
+    func makeWishListCountLabel(wishCount: Int) {
         let attributedString = NSMutableAttributedString()
         let imageAttachment = NSTextAttachment()
         imageAttachment.image = UIImage(resource: .likeSelected)
         imageAttachment.bounds = CGRect(x: 0, y: -5, width: 22, height: 22)
         attributedString.append(NSAttributedString(attachment: imageAttachment))
-        attributedString.append(NSAttributedString(string: " \(cartCount)개의 상품"))
+        attributedString.append(NSAttributedString(string: " \(wishCount)개의 상품"))
         attributedString.addAttribute(.font, value: Font.bold16, range: NSRange(location: 0, length: 4))
-        cartListCountLabel.attributedText = attributedString
+        wishListCountLabel.attributedText = attributedString
     }
     
     func configureHierachy() {
         contentView.addSubview(menuLabel)
-        contentView.addSubview(cartListCountLabel)
+        contentView.addSubview(wishListCountLabel)
     }
     
     func configureLayout() {
@@ -49,7 +49,7 @@ class SettingMenuTableViewCell: UITableViewCell, Configurable {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().inset(10)
         }
-        cartListCountLabel.snp.makeConstraints {
+        wishListCountLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(10)
         }

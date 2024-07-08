@@ -80,7 +80,7 @@ class SettingViewController: MeaningOutViewController, Configurable {
 extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     enum SettingMenu: String, CaseIterable {
-        case myCartList = "나의 장바구니 목록"
+        case myWishList = "나의 위시리스트"
         case FAQ = "자주 묻는 질문"
         case QnA = "1:1 문의"
         case NotificationSetting = "알림 설정"
@@ -111,14 +111,14 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: SettingMenuTableViewCell.id,
                                                  for: indexPath) as! SettingMenuTableViewCell
         if indexPath.section == 0 {
-            cell.cartListCountLabel.isHidden = false
+            cell.wishListCountLabel.isHidden = false
         } else {
-            cell.cartListCountLabel.isHidden = true
+            cell.wishListCountLabel.isHidden = true
         }
         
         cell.menuLabel.text = SettingMenu.allCases[indexPath.section].rawValue
-        let cartCount = UserDefaultsHelper.standard.cartList.count
-        cell.makeCartListCountLabel(cartCount: cartCount)
+        let wishCount = UserDefaultsHelper.standard.wishList.count
+        cell.makeWishListCountLabel(wishCount: wishCount)
         return cell
     }
 }

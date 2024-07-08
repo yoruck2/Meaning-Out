@@ -24,7 +24,7 @@ final class SearchResultCollectionViewCell: UICollectionViewCell, Configurable {
         $0.clipsToBounds = true
     }
     
-    lazy var cartButton = CartButton(cellProductID: itemData?.productId ?? "")
+    lazy var wishButton = WishButton(cellProductID: itemData?.productId ?? "")
     
     let sellerLabel = UILabel().then {
         $0.font = Font.medium13
@@ -52,12 +52,12 @@ final class SearchResultCollectionViewCell: UICollectionViewCell, Configurable {
     }
     
     override func prepareForReuse() {
-        guard let  cartData = UserDefaultsHelper.standard.cartList[itemData?.productId ?? ""]
+        guard let  wishData = UserDefaultsHelper.standard.wishList[itemData?.productId ?? ""]
         else {
             isSelected = false
             return
         }
-        isSelected = cartData as! Bool
+        isSelected = wishData as! Bool
     }
     
     // MARK: id 확인 -
@@ -70,9 +70,9 @@ final class SearchResultCollectionViewCell: UICollectionViewCell, Configurable {
         sellerLabel.text = itemData.mallName
         productNameLabel.text = itemData.title.removeHTMLTags()
         priceLabel.text = "\(itemData.lprice)원"
-        cartButton.cellProductID = itemData.productId
+        wishButton.cellProductID = itemData.productId
         
-        cartButton.handler = { [self] in
+        wishButton.handler = { [self] in
             let data = WishlistTable(productId: itemData.productId,
                                      title: itemData.title,
                                      link: itemData.link,
@@ -85,7 +85,7 @@ final class SearchResultCollectionViewCell: UICollectionViewCell, Configurable {
     
     func configureHierachy() {
         contentView.addSubview(productImageView)
-        contentView.addSubview(cartButton)
+        contentView.addSubview(wishButton)
         contentView.addSubview(sellerLabel)
         contentView.addSubview(productNameLabel)
         contentView.addSubview(priceLabel)
@@ -97,11 +97,11 @@ final class SearchResultCollectionViewCell: UICollectionViewCell, Configurable {
             $0.height.equalTo(contentView.safeAreaLayoutGuide).multipliedBy(0.7)
         }
         
-        cartButton.snp.makeConstraints {
+        wishButton.snp.makeConstraints {
             $0.trailing.equalTo(productImageView.snp.trailing).inset(20)
             $0.bottom.equalTo(productImageView.snp.bottom).inset(20)
             $0.height.equalTo(30)
-            $0.width.equalTo(cartButton.snp.height)
+            $0.width.equalTo(wishButton.snp.height)
         }
         
         sellerLabel.snp.makeConstraints {

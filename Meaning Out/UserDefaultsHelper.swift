@@ -10,7 +10,7 @@ import UIKit
 enum Key: String {
     case nickname
     case recentSearchList
-    case cartList
+    case wishList
     case signUpDate
     case profileImage
 }
@@ -39,13 +39,13 @@ final class UserDefaultsHelper {
         }
     }
     
-    var cartList: [String: Any] {
+    var wishList: [String: Any] {
         
         get {
-            return userDefaults.dictionary(forKey: Key.cartList.rawValue) ?? [:]
+            return userDefaults.dictionary(forKey: Key.wishList.rawValue) ?? [:]
         }
         set {
-            userDefaults.set(newValue, forKey: Key.cartList.rawValue)
+            userDefaults.set(newValue, forKey: Key.wishList.rawValue)
         }
     }
     
