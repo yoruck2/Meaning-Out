@@ -52,9 +52,11 @@
 		840A45532C21A4CE00094BDA /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A45522C21A4CE00094BDA /* ProfileEditViewController.swift */; };
 		84907E702C3B200A006C150D /* WIshListTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84907E6F2C3B200A006C150D /* WIshListTable.swift */; };
 		84907E7A2C3B2B7A006C150D /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84907E792C3B2B7A006C150D /* WishlistViewController.swift */; };
-		84907E7C2C3B3487006C150D /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84907E7B2C3B3487006C150D /* UICollectionView.swift */; };
+		84907E7C2C3B3487006C150D /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84907E7B2C3B3487006C150D /* UICollectionView+.swift */; };
 		84907E7E2C3B352C006C150D /* WIshListTableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84907E7D2C3B352C006C150D /* WIshListTableRepository.swift */; };
 		84907E8B2C3BE70E006C150D /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 84907E8A2C3BE70E006C150D /* RealmSwift */; };
+		84907E992C3D4F9C006C150D /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84907E982C3D4F9C006C150D /* Observable.swift */; };
+		84907E9B2C3D501B006C150D /* ProfileSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84907E9A2C3D501B006C150D /* ProfileSettingViewModel.swift */; };
 		8496E7982C255F78009B9238 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496E7972C255F78009B9238 /* String+.swift */; };
 		8496E79C2C2679BE009B9238 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496E79B2C2679BE009B9238 /* ProductDetailViewController.swift */; };
 		8496E79E2C26A2B3009B9238 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496E79D2C26A2B3009B9238 /* UIButton+.swift */; };
@@ -106,8 +108,10 @@
 		840A45522C21A4CE00094BDA /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		84907E6F2C3B200A006C150D /* WIshListTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WIshListTable.swift; sourceTree = "<group>"; };
 		84907E792C3B2B7A006C150D /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
-		84907E7B2C3B3487006C150D /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
+		84907E7B2C3B3487006C150D /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		84907E7D2C3B352C006C150D /* WIshListTableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WIshListTableRepository.swift; sourceTree = "<group>"; };
+		84907E982C3D4F9C006C150D /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		84907E9A2C3D501B006C150D /* ProfileSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewModel.swift; sourceTree = "<group>"; };
 		8496E7972C255F78009B9238 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		8496E79B2C2679BE009B9238 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		8496E79D2C26A2B3009B9238 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
@@ -184,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				840A44D62C1DC5A200094BDA /* VC */,
+				84907E982C3D4F9C006C150D /* Observable.swift */,
 				840A44952C1C111600094BDA /* LargeCapsuleButton.swift */,
 				840A44DB2C1E9F5B00094BDA /* ProfileSettingCircleView.swift */,
 				840A44CB2C1C52FC00094BDA /* RoundView.swift */,
@@ -245,7 +250,7 @@
 				84E069022C29FA7E008DE620 /* UIAlertController+.swift */,
 				840A44D72C1DD5ED00094BDA /* UIView+.swift */,
 				840A451C2C2091B900094BDA /* Date+.swift */,
-				84907E7B2C3B3487006C150D /* UICollectionView.swift */,
+				84907E7B2C3B3487006C150D /* UICollectionView+.swift */,
 				8496E7972C255F78009B9238 /* String+.swift */,
 				8496E79D2C26A2B3009B9238 /* UIButton+.swift */,
 			);
@@ -257,6 +262,7 @@
 			children = (
 				840A44692C1B2CA900094BDA /* WelcomeViewController.swift */,
 				840A449F2C1C298400094BDA /* ProfileSettingViewController.swift */,
+				84907E9A2C3D501B006C150D /* ProfileSettingViewModel.swift */,
 				840A44A12C1C29B900094BDA /* ProfileImageSettingViewController.swift */,
 				840A44D92C1DD62E00094BDA /* ProfileImageSettingCollectionViewCell.swift */,
 			);
@@ -388,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84907E992C3D4F9C006C150D /* Observable.swift in Sources */,
 				840A447E2C1B6B7C00094BDA /* APIAuth.swift in Sources */,
 				8496E79E2C26A2B3009B9238 /* UIButton+.swift in Sources */,
 				840A451B2C2082BF00094BDA /* ProfileAreaView.swift in Sources */,
@@ -400,6 +407,7 @@
 				840A451F2C20998100094BDA /* SettingMenuTableViewCell.swift in Sources */,
 				840A44E72C1F8D3700094BDA /* UserDefaultsHelper.swift in Sources */,
 				840A44D52C1DC13800094BDA /* UIViewController+.swift in Sources */,
+				84907E9B2C3D501B006C150D /* ProfileSettingViewModel.swift in Sources */,
 				840A45492C2148D100094BDA /* SearchResultCollectionViewCell.swift in Sources */,
 				8496E7982C255F78009B9238 /* String+.swift in Sources */,
 				840A446A2C1B2CA900094BDA /* WelcomeViewController.swift in Sources */,
@@ -418,7 +426,7 @@
 				840A44A02C1C298400094BDA /* ProfileSettingViewController.swift in Sources */,
 				84D2BC822C32E1B200DCA459 /* APIURL.swift in Sources */,
 				840A44682C1B2CA900094BDA /* SceneDelegate.swift in Sources */,
-				84907E7C2C3B3487006C150D /* UICollectionView.swift in Sources */,
+				84907E7C2C3B3487006C150D /* UICollectionView+.swift in Sources */,
 				840A44CE2C1C71E900094BDA /* ProfileCircleView.swift in Sources */,
 				840A45152C1FE19800094BDA /* recentSearchTableViewCell.swift in Sources */,
 				8496E79C2C2679BE009B9238 /* ProductDetailViewController.swift in Sources */,

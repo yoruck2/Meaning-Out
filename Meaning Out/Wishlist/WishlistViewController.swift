@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
+// TODO: 검색기능-
 class WishlistViewController: MeaningOutViewController, UISearchControllerDelegate {
     
     let repository = WishListTableRepository.shared
@@ -17,7 +18,7 @@ class WishlistViewController: MeaningOutViewController, UISearchControllerDelega
     let productSearchBar = UISearchController().then {
         $0.searchBar.placeholder = "브랜드, 상품 등을 입력하세요."
     }
-    lazy var wishlistCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionView.collectionViewLayout()).then {
+    lazy var wishlistCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionView.searchCollectionViewLayout()).then {
         $0.delegate = self
         $0.dataSource = self
         $0.register(SearchResultCollectionViewCell.self, forCellWithReuseIdentifier: SearchResultCollectionViewCell.id)

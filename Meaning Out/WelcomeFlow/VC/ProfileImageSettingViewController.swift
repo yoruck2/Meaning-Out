@@ -17,7 +17,7 @@ class ProfileImageSettingViewController: MeaningOutViewController, Configurable 
     var profileCircleView = ProfileCircleView()
     weak var delegate: ProfileImageSettingDelegate?
     
-    lazy var profileImageSettingCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionView.collectionViewLayout())
+    lazy var profileImageSettingCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionView.profileCollectionViewLayout())
     
     override func viewDidLoad() {
         super.viewDidLoad()

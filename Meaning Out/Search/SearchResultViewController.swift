@@ -88,7 +88,7 @@ class SearchResultViewController: MeaningOutViewController, Configurable {
     
     
     lazy var searchResultCollectionView = UICollectionView(frame: .zero,
-                                                           collectionViewLayout: UICollectionView.collectionViewLayout())
+                                                           collectionViewLayout: UICollectionView.searchCollectionViewLayout())
     
     override func viewDidLoad() {
         super.viewDidLoad()
