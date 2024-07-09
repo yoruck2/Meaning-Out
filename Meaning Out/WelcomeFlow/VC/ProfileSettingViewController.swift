@@ -19,6 +19,9 @@ enum NicknameGuide: String {
 
 class ProfileSettingViewController: MeaningOutViewController, Configurable {
     
+    let viewModel = ProfileSettingViewModel()
+    
+    
     lazy var profileCircleView = ProfileCircleView().then {
         if UserDefaultsHelper.standard.nickname.isEmpty {
             let imageNumber = Int.random(in: 0...11)
@@ -74,6 +77,18 @@ class ProfileSettingViewController: MeaningOutViewController, Configurable {
         configureHierachy()
         configureLayout()
         configureUI()
+        bindData()
+    }
+    
+    func bindData() {
+        
+        viewModel.outputValidationText.bind { value in
+            self.nicknameGuideLabel.text = value?.rawValue
+        }
+        
+        viewModel.outputValid.bind { value in
+            self.completeButton.isEnabled = value
+        }
     }
     
     @objc
@@ -134,9 +149,9 @@ class ProfileSettingViewController: MeaningOutViewController, Configurable {
         UserDefaultsHelper.standard.signUpDate = Date.todayString()
         
         let tabBar = MeaningOutTabBarController()
-//        tabBar.modalPresentationStyle = .fullScreen
-//        tabBar.modalTransitionStyle = .crossDissolve
-//        present(tabBar, animated: true)
+        //        tabBar.modalPresentationStyle = .fullScreen
+        //        tabBar.modalTransitionStyle = .crossDissolve
+        //        present(tabBar, animated: true)
         
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
@@ -150,35 +165,13 @@ class ProfileSettingViewController: MeaningOutViewController, Configurable {
         guard let text = textField.text else {
             return
         }
-        
-        let validation = validateNickName(text)
-        if validation == .validNickname {
-            completeButton.isEnabled = true
-            nicknameGuideLabel.text = validation.rawValue
-        } else {
-            completeButton.isEnabled = false
-            nicknameGuideLabel.text = validation.rawValue
-        }
-    }
-    
-    // TODO: 에러 핸들링 적용해볼려 했는데 여러 케이스별로 나뉘는거라.. 안되는건가??
-    func validateNickName(_ text: String) -> NicknameGuide {
-        
-        let filteredText = text.components(separatedBy: ["#","$","@","%"]).joined()
-        guard filteredText == text else {
-            return .containedSpecialCharacter
-        }
-        
-        let filteredNumber = text.filter { $0.isNumber }
-        guard filteredNumber.isEmpty else {
-            return .containedNumber
-        }
-        
-        guard 2..<10 ~= text.count else {
-            return .invalidCount
-        }
-        
-        return .validNickname
+        viewModel.inputNickname.value = text
+
+//        if viewModel.outputValidationText.value == .validNickname {
+//            completeButton.isEnabled = true
+//        } else {
+//            completeButton.isEnabled = false
+//        }
     }
 }
 

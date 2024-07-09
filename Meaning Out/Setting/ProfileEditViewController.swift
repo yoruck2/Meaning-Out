@@ -23,7 +23,7 @@ class ProfileEditViewController: ProfileSettingViewController {
     
     @objc
     func saveButtonTapped() {
-        if NicknameGuide.validNickname == validateNickName(nicknameTextField.text ?? "") {
+        if NicknameGuide.validNickname == viewModel.outputValidationText.value {
             UserDefaultsHelper.standard.nickname = nicknameTextField.text ?? ""
             UserDefaultsHelper.standard.profileImage = profileCircleView.profileImageView.innerImageView.image ?? UIImage()
             self.navigationController?.popViewController(animated: true)
