@@ -166,12 +166,6 @@ class ProfileSettingViewController: MeaningOutViewController, Configurable {
             return
         }
         viewModel.inputNickname.value = text
-
-//        if viewModel.outputValidationText.value == .validNickname {
-//            completeButton.isEnabled = true
-//        } else {
-//            completeButton.isEnabled = false
-//        }
     }
 }
 
